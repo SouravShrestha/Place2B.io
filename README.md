@@ -29,4 +29,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Place2B.io
 MEAN based slide+notes sharing web application.
- bf3f4bfb8f9e6bc4e3b5195eed4bff96651410eb
