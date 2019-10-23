@@ -1,0 +1,118 @@
+@import "../../styles.scss";
+
+*{
+    user-select: none;
+}
+
+#hide_{
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#show_{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+::-webkit-scrollbar {
+    height: 0px;
+}
+
+.slide-card{
+    transition: 0.3s;
+    box-shadow: 5px 5px var(--nav-shadow);
+    background-color: var(--nav-back-color);
+
+    img{
+        width: 100%;
+    }
+
+    h3{
+        font-family: MaipoSans-SemiBold;
+        font-size: 20px;
+        padding: 10px;
+        padding-left: 15px;
+    }
+
+    .desc-slide{
+        font-size: 16px;
+        padding: 0 15px 10px 15px;
+        font-family: MaipoSans-Regular;
+        white-space: normal;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 2.5em;
+    }
+
+    .tag-group{
+        font-size: 12px;
+        padding: 5px;
+        padding-left: 15px;
+        padding-top: 0;
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        white-space: initial;
+        font-family: MaipoSans-Regular;
+
+        .tag{
+            background-color: #2775C3;
+            color: white;
+            margin-bottom: 6px;
+            margin-right: 6px;
+            padding:3px 15px;
+            border-radius: 3px;
+        }
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+.slide-card:first-child{
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+}
+
+.btn-next{
+    opacity: 0.4;
+    z-index: 10;
+    margin-top: -19%;
+    margin-right: -35px;
+    position: relative;
+    float: right;
+    transition: 0.5s;
+    img{
+        filter:var(--next-btn);
+        height: 60%;
+        width: 60%;
+    }
+    &:hover{
+        opacity: 1;
+        cursor: pointer;
+        transform:  scale(1.2);
+    }
+}
+
+.btn-prev{
+    margin-top: -19%;
+    opacity: 0.4;
+    margin-left: -20px;
+    position: relative;
+    z-index: 10;
+    float: left;
+    transition: 0.5s;
+    img{
+        filter: var(--prev-btn);
+        height: 60%;
+        width: 60%;
+    }
+    &:hover{
+        opacity: 1;
+        cursor: pointer;
+        transform:  scale(1.2);
+    }
+}

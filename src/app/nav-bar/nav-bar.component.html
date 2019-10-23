@@ -1,0 +1,22 @@
+<div class="nav-bar">
+  <ul>
+    <a routerLink="/"><li class="active" title-tooltip="Home">
+      <img src="../../assets/images/home.svg" class="nav-icon active-nav-icon">
+    </li></a>
+    <a routerLink="/search"><li title-tooltip="Search"><img src="../../assets/images/search.svg" class="nav-icon"/></li></a>
+    <a routerLink="/slides"><li title-tooltip="Slides"><img src="../../assets/images/slides.svg" class="nav-icon"/></li></a>
+    <a routerLink="/following"><li title-tooltip="Following"><img src="../../assets/images/following.svg" class="nav-icon"/></li></a>
+    <a routerLink="/tags"><li title-tooltip="Tags"><img src="../../assets/images/tag.svg" class="nav-icon"/></li></a>
+    <a routerLink="/profile"><li title-tooltip="Profile"><img src="../../assets/images/man.svg" class="nav-icon-avatar"/></li></a>
+  </ul>
+</div>
+
+<div class="settings" id="settings" (mouseover)='toggle_hover_on_settings()' (mouseout)='toggle_hover_on_settings()'>
+    <div class="upload" title-tooltip="Upload Slide">
+        <img src="../../assets/images/upload.svg"/>
+    </div>
+    <div class="brightness" id="brightness" title-tooltip="Lights On" (click)="changeTheme()">
+      <img src="{{img_src}}" class="nav-icon"/>
+    </div>
+</div>
+

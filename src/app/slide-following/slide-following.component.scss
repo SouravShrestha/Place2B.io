@@ -1,0 +1,22 @@
+@import "../slide-card/slide-card.component.scss";
+
+.slide-container{
+    width: 100%;
+    padding: 1% 0;
+    margin-top: 10px;
+}
+
+.slide-card{
+    margin: 0 1.25% 3% 1.5%;
+    width: 30.5%;
+    display: inline-block;
+}
+
+.slide-card:first-child, .slide-card:nth-child(4){
+    margin-left: 1.5%;
+    margin-right: 1.25%;
+}
+
+#last-card:hover{
+    transform: scale(1);
+}
