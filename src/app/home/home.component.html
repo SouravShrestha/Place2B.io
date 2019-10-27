@@ -1,14 +1,28 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (src_land_event)="src_land_change($event)"></app-nav-bar>
 <div class="body-content">
-    <h1 class="heading"><a routerLink="/">Place2B.io</a></h1>
+    <table class="head-container">
+        <tr>
+            <td style="text-align: center; vertical-align: middle;"><a routerLink="/"><img src="../../assets/images/logo-main.svg" id="logo"></a></td>
+            <td><h1 class="heading"><a routerLink="/">Place2B.io</a></h1></td>
+        </tr>
+    </table>
     <div class="dashed-line"></div>
-    <br>
-    <div class="landing-container" style="height: 60vh;width: 100%">
+    <br><br><br>
+    <div class="landing-container">
         <div class="left-main">
-
+            <div class="temp">
+                <div class="temp-ref">
+                    <ngx-typed-js [strings]="['Learn ', 'Share ', 'Download']" [typeSpeed]="100" [backSpeed]="100" [backDelay]="1500" [loop]="true">
+                        <span class="static-typed"> Created to <h3 class="typing heading-sub-main"></h3> with ease</span>
+                    </ngx-typed-js>
+                </div>
+                <p class="desc-main">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. Lorem ipsum, or lipsum. </p>
+                <br>
+                <a href="#" class="button-explore">Explore</a>
+            </div>
         </div>
         <div class="right-main">
-            <img src="../../assets/images/back-main.svg">
+            <img src="{{src_land}}" class="border">
         </div>
     </div>
     <br>

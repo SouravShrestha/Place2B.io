@@ -3,7 +3,7 @@
 
 html{
     --nav-back-color:#2A2E35;
-    --nav-active-color:#FA7A38;
+    --nav-active-color:#E55523;
     --font-color:#FFF;
     --desc-color:#8B8F90;
     --line-color:#2A2E35;
@@ -11,6 +11,8 @@ html{
     --prev-btn:none;
     --nav-shadow:rgba(18, 24, 27, 0.2);
     --body-back:#12181B;
+    --laptop-border:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(335deg) brightness(110%) contrast(102%);
+    --laptop-screen:brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(605%) hue-rotate(179deg) brightness(85%) contrast(100%);
     --active-green-color:#09C372;
     --nav-active-icon-filter:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
     --nav-inactive-icon-filter:none;
@@ -19,6 +21,8 @@ html{
 html[data-theme='light']{
     --nav-back-color:#DAE0E7;
     --font-color:#2a2a2a;
+    --laptop-border:brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(605%) hue-rotate(179deg) brightness(85%) contrast(100%);
+    --laptop-screen:brightness(0) saturate(100%) invert(93%) sepia(5%) saturate(281%) hue-rotate(172deg) brightness(97%) contrast(91%);
     --desc-color:#4B4949;
     --next-btn:brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(620%) hue-rotate(167deg) brightness(90%) contrast(88%);
     --prev-btn:brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(620%) hue-rotate(167deg) brightness(90%) contrast(88%);

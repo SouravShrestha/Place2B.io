@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(NavBarComponent) nav_bar;
+  src_land = "../../assets/images/landing-page-dark.svg";
 
-  ngOnInit() {
+  constructor() { 
+  }
+
+  ngOnInit() { 
+    this.src_land = this.nav_bar.src_land;
+  }
+ 
+  src_land_change($event){
+    this.src_land = $event;
   }
 
 }

@@ -7,6 +7,37 @@
     text-align: center;
 }
 
+.rotate_{
+    animation: rotation 5s linear;
+}
+
+.head-container{
+    margin-left: auto;
+    margin-right: auto;
+    img{
+        height: 48px;
+        width: 48px;
+        margin-top: 12px;
+        &:hover{
+            animation: rotation 1s ease-in-out;
+        }
+    }
+    tr{
+        td{
+            padding: 0 10px;
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
 .heading{
     a{
         text-decoration: none;
@@ -28,6 +59,34 @@
 .desc-about{
     font-size: 20px;
     line-height: 42px;
+    font-family: MaipoSans-Regular;
+    text-align: justify;
+    color:var(--desc-color);
+}
+
+.heading-sub-main{
+    margin-left: 5px;
+    font-size: 34px;
+    text-align: left;
+    letter-spacing: 2px;
+    color: #F05824;
+}
+
+.temp-ref{
+    width: 150%;
+}
+
+.static-typed{
+    font-size: 30px;
+    text-align: left;
+    font-family: MaipoSans-SemiBold;
+}   
+
+.desc-main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 36px;
     font-family: MaipoSans-Regular;
     text-align: justify;
     color:var(--desc-color);
@@ -151,20 +210,41 @@
   }
 
 .landing-container{
-    background: linear-gradient(to right, var(--body-back),#006EFF);
+    height: 55vh;
+    padding-left: 5%;
     .left-main{
+        @include flexCenter();
         float: left;
-        width: 50%;
+        width: 45%;
         height: 100%;
+        .temp{
+            width:100%;
+            margin:4vh;
+            text-align: left;
+        }
+        a{
+            color: #fff;
+            user-select: none;
+            font-family: MaipoSans-SemiBold;
+            font-size: 22px;
+            text-decoration: none;
+            background-color: #E55523;
+            padding: 12px 50px;
+            border-radius: 50px;
+        }
     }
 
     .right-main{
+        @include flexCenter();
+        position: relative;
         float: left;
-        width: 50%;
+        width: 45%;
         height: 100%;
+        padding-left: 5%;
+        text-align: center;
         img{
             height: 100%;
-            float: right;
+            margin:auto;
         }
     }
 }
