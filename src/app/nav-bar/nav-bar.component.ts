@@ -1,6 +1,6 @@
-import { Component, OnInit, HostListener, Inject, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,13 +13,12 @@ export class NavBarComponent implements OnInit {
   hover_on_settings = true;
   normal_pos = true;
   img_src = '../../assets/images/set-light.svg';
-  src_land = '../../assets/images/landing-page-dark.svg';
+  src_land:string;
 
-  @Output() src_land_event = new EventEmitter<string>();
-
-  constructor( @Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private data: DataService) { }
 
   ngOnInit() {
+    this.data.curr_src.subscribe(src_land => this.src_land = src_land);
   }
   
   @HostListener("window:scroll", [])
@@ -62,14 +61,13 @@ export class NavBarComponent implements OnInit {
     var currTheme = document.documentElement.getAttribute('data-theme');
     if(currTheme == 'dark'){
       document.documentElement.setAttribute('data-theme','light');
-      this.src_land = '../../assets/images/landing-page-light.svg';
       this.img_src = '../../assets/images/set-dark.svg';
+      this.data.changeLandSrc('../../assets/images/landing-page-light.svg');
     }else{
       document.documentElement.setAttribute('data-theme','dark');
-      this.src_land = '../../assets/images/landing-page-dark.svg';
       this.img_src = '../../assets/images/set-light.svg';
+      this.data.changeLandSrc('../../assets/images/landing-page-dark.svg');
     }
-    this.src_land_event.emit(this.src_land);
   }
 
 }

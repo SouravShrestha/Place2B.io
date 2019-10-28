@@ -1,0 +1,128 @@
+@import "../../styles.scss";
+
+a{
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.head-container{
+    img{
+        height: 48px;
+        width: 48px;
+        margin-top: 12px;
+        &:hover{
+            animation: rotation 1s ease-in-out;
+        }
+    }
+    tr{
+        td{
+            padding: 0 10px;
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.heading{
+    font-size: 48px;
+}
+
+.upload-container{
+    background-color: var(--body-back);
+    width: 85%;
+    padding: 0 1%;
+    padding-left: 3%;
+    .modal-left{
+        float: left;
+        position: relative;
+        width: 45%;
+        height: 100%;
+        .thumb-modal{
+            width: 90%;
+            height: 60%;
+        }
+        .up-src{
+            width: 90%;
+            height: 10%;
+            p{
+                font-family: MaipoSans-SemiBold;
+                word-spacing: 1.5px;
+                font-size: 18px;
+            }
+           .btn-change{
+                color: #FFF;
+                text-align: center;
+                width: fit-content;
+                margin-top: 3%;
+                padding: 5px 20px;
+                border-radius: 50px;
+                background-color: var(--active-green-color);
+                font-family: MaipoSans-SemiBold;
+                font-size: 16px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .btn-submit{
+            color: #FFF;
+            text-align: center;
+            width: 85%;
+            margin-top: 10%;
+            padding: 10px 15px;
+            border-radius: 50px;
+            background-color: var(--nav-active-color);
+            font-family: MaipoSans-Bold;
+            font-size: 22px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .modal-right{
+        float: left;
+        margin-top: -15px;
+        padding-left: 5%;
+        width: 50%;
+        height: 100%;
+        .attr-container{
+            clear: both;
+            h2{
+                margin-top: 2px;
+                font-family: MaipoSans-SemiBold;
+                font-size: 26px;
+            }
+            input{
+                font-size: 20px;
+                width: 100%;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                background-color: var(--input-back);
+                border-radius: 5px;
+                border: none;
+                font-family: MaipoSans-Regular;
+                padding: 10px 15px;
+            }
+            textarea{
+                font-size: 20px;
+                background-color: var(--input-back);
+                width: 100%;
+                resize: none;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                border: none;
+                font-family: MaipoSans-Regular;
+                padding: 10px 15px;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,13 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 })
 export class HomeComponent implements OnInit {
 
-  @ViewChild(NavBarComponent) nav_bar;
-  src_land = "../../assets/images/landing-page-dark.svg";
+  src_land:string;
 
-  constructor() { 
+  constructor(private data: DataService) { 
   }
 
   ngOnInit() { 
-    this.src_land = this.nav_bar.src_land;
-  }
- 
-  src_land_change($event){
-    this.src_land = $event;
+    this.data.curr_src.subscribe(src_land => this.src_land = src_land);
   }
 
 }

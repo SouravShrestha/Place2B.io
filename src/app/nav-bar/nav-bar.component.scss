@@ -93,6 +93,7 @@
         &:hover{
             cursor: pointer;
         }
+        
         &:hover:after{
             background-color: var(--nav-active-color);
             color: #fff;

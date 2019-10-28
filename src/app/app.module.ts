@@ -9,7 +9,8 @@ import { SlideCardComponent } from './slide-card/slide-card.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { FooterComponent } from './footer/footer.component';
 import { SlideFollowingComponent } from './slide-following/slide-following.component';
-import { UploadModalComponent } from './upload-modal/upload-modal.component';
+import { UploadComponent } from './upload/upload.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { UploadModalComponent } from './upload-modal/upload-modal.component';
     SlideCardComponent,
     FooterComponent,
     SlideFollowingComponent,
-    UploadModalComponent
+    UploadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxTypedJsModule,
+    BrowserAnimationsModule,
     OwlModule
   ],
   providers: [],
