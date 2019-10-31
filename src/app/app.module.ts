@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SlideFollowingComponent } from './slide-following/slide-following.component';
 import { UploadComponent } from './upload/upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SlideCardComponent,
     FooterComponent,
     SlideFollowingComponent,
-    UploadComponent
+    UploadComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

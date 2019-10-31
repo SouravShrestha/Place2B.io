@@ -18,16 +18,10 @@
     box-shadow: 5px 5px var(--nav-shadow);
     li{
         padding: 23px 0;
-        .active-nav-icon{
-            filter: var(--nav-active-icon-filter);
-        }
         &:hover{
             cursor: pointer;
             .nav-icon{ 
-                filter: brightness(0) saturate(100%) invert(60%) sepia(50%) saturate(2596%) hue-rotate(335deg) brightness(99%) contrast(98%);
-            }
-            .active-nav-icon{
-                filter: var(--nav-active-icon-filter);
+                filter: brightness(0) saturate(100%) invert(65%) sepia(63%) saturate(7051%) hue-rotate(348deg) brightness(93%) contrast(92%);
             }
         }
         &:hover:after{
@@ -45,8 +39,15 @@
     }
     .active{
         background-color: var(--nav-active-color);
-        
-    box-shadow: 5px 5px var(--nav-shadow);
+        box-shadow: 5px 5px var(--nav-shadow);
+        img{
+            filter: var(--nav-active-icon-filter);
+        }
+        &:hover{
+            img{
+                filter: var(--nav-active-icon-filter);
+            }
+        }
     }
 
 }
@@ -107,6 +108,10 @@
             position: absolute;
             z-index: 100;
         }
+    }
+
+    .active-upload{
+        background-color: var(--nav-active-color);
     }
 
     .brightness{

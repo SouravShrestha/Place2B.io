@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { DataService } from "../data.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +16,7 @@ export class NavBarComponent implements OnInit {
   img_src = '../../assets/images/set-light.svg';
   src_land:string;
 
-  constructor(@Inject(DOCUMENT) private document: Document, private data: DataService) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private data: DataService, private router: Router) { }
 
   ngOnInit() {
     this.data.curr_src.subscribe(src_land => this.src_land = src_land);
