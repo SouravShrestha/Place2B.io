@@ -5,36 +5,6 @@ a{
     text-decoration: none;
 }
 
-.head-container{
-    img{
-        height: 48px;
-        width: 48px;
-        margin-top: 12px;
-        &:hover{
-            animation: rotation 1s ease-in-out;
-        }
-    }
-    tr{
-        td{
-            padding: 0 10px;
-        }
-    }
-}
-
-@keyframes rotation {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-.heading{
-    font-size: 48px;
-}
-
 .upload-container{
     background-color: var(--body-back);
     width: 85%;

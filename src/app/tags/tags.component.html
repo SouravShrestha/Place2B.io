@@ -1,0 +1,35 @@
+<div class="body-content">
+  <div class="temp-ref-main">
+    <table class="head-container">
+      <tr>
+        <td style="text-align: center; vertical-align: middle;"><a routerLink="/"><img src="../../assets/images/logo-main.svg" id="logo"></a></td>
+        <td><h1 class="heading">Tags</h1></td>
+      </tr>
+    </table>
+    <div class="dashed-line"></div>
+    <br>
+    <div class="search-container">
+      <div class="search">
+        <input type="text" placeholder="Search Tag . . ." class="search-bar" id="inp-search" [(ngModel)]="tag_name" (input)="search()" name="tags_search"/>
+        <button class="btn-search" (click)="setFocus()">
+          <img src="../../assets/images/search.svg">
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="tags-container">
+      <div *ngFor="let x of temp">
+        <span *ngFor="let tag of tags_array_temp" style="float: left;">
+          <a routerLink='/tags/{{tag.name}}' class="tag" [ngStyle]="{'background-color':tag.color, 'color':tag.textColor}">#{{tag.name}}</a>
+        </span>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="no-tags-hide" id="no-tags">
+      <img src="../../assets/images/no-tags.svg">
+      <h2 class="no-head"> NO RESULT </h2>
+      <h2 class="no-desc"> Try searching for a different tag</h2>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

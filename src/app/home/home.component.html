@@ -1,67 +1,69 @@
 <div class="body-content">
-    <table class="head-container">
-        <tr>
-            <td style="text-align: center; vertical-align: middle;"><a routerLink="/"><img src="../../assets/images/logo-main.svg" id="logo"></a></td>
-            <td><h1 class="heading"><a routerLink="/">Place2B.io</a></h1></td>
-        </tr>
-    </table>
-    <div class="dashed-line"></div>
-    <br><br><br>
-    <div class="landing-container">
-        <div class="left-main">
-            <div class="temp">
-                <div class="temp-ref">
-                    <ngx-typed-js [strings]="['Learn ', 'Share ', 'Download']" [typeSpeed]="100" [backSpeed]="100" [backDelay]="1500" [loop]="true">
-                        <span class="static-typed"> Created to <h3 class="typing heading-sub-main"></h3> with ease</span>
-                    </ngx-typed-js>
+    <div class="temp-ref-main">
+        <table class="head-container">
+            <tr>
+                <td style="text-align: center; vertical-align: middle;"><a routerLink="/"><img src="../../assets/images/logo-main.svg" id="logo"></a></td>
+                <td><h1 class="heading"><a routerLink="/">Place2B.io</a></h1></td>
+            </tr>
+        </table>
+        <div class="dashed-line"></div>
+        <br><br><br>
+        <div class="landing-container">
+            <div class="left-main">
+                <div class="temp">
+                    <div class="temp-ref">
+                        <ngx-typed-js [strings]="['Learn ', 'Share ', 'Download']" [typeSpeed]="100" [backSpeed]="100" [backDelay]="1500" [loop]="true">
+                            <span class="static-typed"> Created to <h3 class="typing heading-sub-main"></h3> with ease</span>
+                        </ngx-typed-js>
+                    </div>
+                    <p class="desc-main">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. Lorem ipsum, or lipsum. </p>
+                    <br>
+                    <a href="#" class="button-explore">Explore</a>
                 </div>
-                <p class="desc-main">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. Lorem ipsum, or lipsum. </p>
-                <br>
-                <a href="#" class="button-explore">Explore</a>
+            </div>
+            <div class="right-main">
+                <img src="{{src_land}}" class="border">
             </div>
         </div>
-        <div class="right-main">
-            <img src="{{src_land}}" class="border">
-        </div>
-    </div>
-    <br>
-    <h3 class="sub-heading">Top Slides</h3>
-    <app-slide-card></app-slide-card>
-    <h3 class="sub-heading">Newly Added</h3>
-    <app-slide-following></app-slide-following> 
-    <div class="dashed-line" style="margin-top: 0;"></div>
-    <br><br>
-    <p class="head-desc">Explore the ease at ease</p>
-    <h3 class="heading-sub">How it works</h3>
-    <br><br>
-    <div class="how-container">
-        <div class="how-card">
-            <img src="../../assets/images/follow-how.svg">
-            <h4> Find & Follow </h4>
-            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century</p>
-        </div>
-        <div class="how-card">
-            <img src="../../assets/images/search-how.svg">
-            <h4> View or Search </h4>
-            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century</p>
-        </div>
-        <div class="how-card">
-            <img src="../../assets/images/download-how.svg">
-            <h4> Learn & Download </h4>
-            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century</p>
-        </div>
-    </div>
-    <div class="about-container">
-        <div class="about-left">
-            <div class="temp">
-                <h3 class="heading-sub-1">At a glance</h3>
-                <br>
-                <p class="desc-about">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+        <br>
+        <h3 class="sub-heading">Top Slides</h3>
+        <app-slide-card></app-slide-card>
+        <h3 class="sub-heading">Newly Added</h3>
+        <app-slide-following></app-slide-following> 
+        <div class="dashed-line" style="margin-top: 0;"></div>
+        <br><br>
+        <p class="head-desc">Explore the ease at ease</p>
+        <h3 class="heading-sub">How it works</h3>
+        <br><br>
+        <div class="how-container">
+            <div class="how-card">
+                <img src="../../assets/images/follow-how.svg">
+                <h4> Find & Follow </h4>
+                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century</p>
+            </div>
+            <div class="how-card">
+                <img src="../../assets/images/search-how.svg">
+                <h4> View or Search </h4>
+                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century</p>
+            </div>
+            <div class="how-card">
+                <img src="../../assets/images/download-how.svg">
+                <h4> Learn & Download </h4>
+                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century</p>
             </div>
         </div>
-        <div class="about-right">
-            <div class="temp">
-                <img src="../../assets/images/temp-back.svg">
+        <div class="about-container">
+            <div class="about-left">
+                <div class="temp">
+                    <h3 class="heading-sub-1">At a glance</h3>
+                    <br>
+                    <p class="desc-about">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="temp">
+                    <img src="../../assets/images/temp-back.svg">
+                </div>
             </div>
         </div>
     </div>

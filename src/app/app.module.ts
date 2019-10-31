@@ -12,6 +12,8 @@ import { SlideFollowingComponent } from './slide-following/slide-following.compo
 import { UploadComponent } from './upload/upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
+import { TagsComponent } from './tags/tags.component';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { SearchComponent } from './search/search.component';
     FooterComponent,
     SlideFollowingComponent,
     UploadComponent,
-    SearchComponent
+    SearchComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxTypedJsModule,
     BrowserAnimationsModule,
-    OwlModule
+    OwlModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
