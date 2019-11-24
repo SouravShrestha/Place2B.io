@@ -164,3 +164,18 @@ body{
         transform: rotate(360deg);
     }
 }
+
+@media(max-width:600px){
+    .body-content{
+        margin-left: 0;
+        width: 94%;
+    }
+    .head-container{
+        .heading{
+            font-size: 40px;
+        }
+        #logo{
+            width: 35px;
+        }
+    }
+}

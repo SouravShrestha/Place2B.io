@@ -29,6 +29,7 @@ export class SlideCardComponent implements OnInit {
     var decimalPlus15 = this.toDecimal(this.bgColor) + 15;
     this.bgColor = this.toHex(decimalPlus15)
   }
+
   subtract(){
     var decimalPlus15 = this.toDecimal(this.bgColor) - 15;
     this.bgColor = this.toHex(decimalPlus15)

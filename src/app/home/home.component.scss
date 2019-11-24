@@ -214,7 +214,7 @@
     padding-left: 5%;
     .left-main{
         @include flexCenter();
-        float: left;
+        float: right;
         width: 45%;
         height: 100%;
         .temp{
@@ -237,7 +237,7 @@
     .right-main{
         @include flexCenter();
         position: relative;
-        float: left;
+        float: right;
         width: 45%;
         height: 100%;
         padding-left: 5%;
@@ -245,6 +245,64 @@
         img{
             height: 100%;
             margin:auto;
+        }
+    }
+}
+
+@media(max-width:600px){
+    .landing-container{
+        .left-main{
+            @include flexCenter();
+            width: 100%;
+            .temp{
+                width:100%;
+                text-align: left;
+                .temp-ref{
+                    .static-typed{
+                        font-size: 28px;
+                        h3{
+                            font-size: 28px;
+                        }
+                    }
+                }
+                .desc-main{
+                    font-size: 18px;
+                    line-height: 28px;
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                }
+            }
+            a{
+                font-size: 16px;
+            }
+        }
+    
+        .right-main{
+            @include flexCenter();
+            position: relative;
+            height: 50%;
+            margin-top: -30px;
+            img{
+                height: 100%;
+                margin:auto;
+            }
+        }
+    }
+    .head-desc{
+        font-size: 16px;
+    }
+    .heading-sub{
+        font-size: 36px;
+    }
+    .how-container{
+        width: 80%;
+        display: inline-block;
+        .how-card{
+            text-align: left;
+            padding: 25px;
+            width: 100%;
+            height: 100%;
+            margin: 10px 20px;
         }
     }
 }
