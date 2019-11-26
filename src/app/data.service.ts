@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class DataService {
 
-  private land_src = new BehaviorSubject('../../assets/images/landing-page-dark.svg');
+  private land_src = new BehaviorSubject('../../assets/images/back.svg');
   curr_src = this.land_src.asObservable();
 
   constructor() { }

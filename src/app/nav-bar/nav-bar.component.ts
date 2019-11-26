@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { DataService } from "../data.service";
 import { Router } from '@angular/router';
 
@@ -63,11 +63,11 @@ export class NavBarComponent implements OnInit {
     if(currTheme == 'dark'){
       document.documentElement.setAttribute('data-theme','light');
       this.img_src = '../../assets/images/set-dark.svg';
-      this.data.changeLandSrc('../../assets/images/landing-page-light.svg');
+      this.data.changeLandSrc('../../assets/images/back.svg');
     }else{
       document.documentElement.setAttribute('data-theme','dark');
       this.img_src = '../../assets/images/set-light.svg';
-      this.data.changeLandSrc('../../assets/images/landing-page-dark.svg');
+      this.data.changeLandSrc('../../assets/images/back.svg');
     }
   }
 

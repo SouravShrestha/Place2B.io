@@ -1,74 +1,12 @@
 <div class="slide-container">
-  <div class="slide-card">
-      <img src="../../assets/images/Card-1.svg">
-      <h3>Angular 8 Firebase Project Course</h3>
-      <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-      <div class="tag-group">
-        <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-        <span class="tag">#node</span>
-        <span class="tag">#auth</span>
-        <span class="tag">#firebase</span>
-        <span class="tag">#cloud-functions</span>
-      </div>
+  <div class="slide-card" *ngFor="let slide of slides">
+    <a routerLink="/slide_details/{{ slide._id }}">
+        <img [src]="slide.url">
+        <h3>{{slide.title}}</h3>
+         <p class="desc-slide">{{slide.description}}</p>
+        <div class="tag-group">
+          <span class="tag" [ngStyle]="{'background-color': '#' + tag.bg, 'color': '#' + tag.text_color}" *ngFor="let tag of slide.tags">#{{ tag.name.toLowerCase() }}</span>
+        </div>
+    </a>
   </div>
-  <div class="slide-card">
-      <img src="../../assets/images/Card-2.svg">
-      <h3>Angular 8 Firebase Project Course</h3>
-      <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-      <div class="tag-group">
-        <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-        <span class="tag">#node</span>
-        <span class="tag">#auth</span>
-        <span class="tag">#firebase</span>
-        <span class="tag">#cloud-functions</span>
-      </div>
-  </div>
-  <div class="slide-card">
-      <img src="../../assets/images/Card-3.svg">
-      <h3>Angular 8 Firebase Project Course</h3>
-      <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-      <div class="tag-group">
-        <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-        <span class="tag">#node</span>
-        <span class="tag">#auth</span>
-        <span class="tag">#firebase</span>
-        <span class="tag">#cloud-functions</span>
-      </div>
-  </div>
-  <div class="slide-card">
-      <img src="../../assets/images/Card-2.svg">
-      <h3>Angular 8 Firebase Project Course</h3>
-      <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-      <div class="tag-group">
-        <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-        <span class="tag">#node</span>
-        <span class="tag">#auth</span>
-        <span class="tag">#firebase</span>
-        <span class="tag">#cloud-functions</span>
-      </div>
-  </div>
-  <div class="slide-card">
-      <img src="../../assets/images/Card-3.svg">
-      <h3>Angular 8 Firebase Project Course</h3>
-      <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-      <div class="tag-group">
-        <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-        <span class="tag">#node</span>
-        <span class="tag">#auth</span>
-        <span class="tag">#firebase</span>
-        <span class="tag">#cloud-functions</span>
-      </div>
-  </div>
-  <div class="slide-card">
-      <img src="../../assets/images/Card-1.svg">
-      <h3>Angular 8 Firebase Project Course</h3>
-      <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-      <div class="tag-group">
-        <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-        <span class="tag">#node</span>
-        <span class="tag">#auth</span>
-        <span class="tag">#firebase</span>
-        <span class="tag">#cloud-functions</span>
-      </div>
-  </div>  
 </div>

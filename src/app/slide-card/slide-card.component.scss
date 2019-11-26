@@ -19,6 +19,10 @@
 }
 
 .slide-card{
+    color:var(--font-color);
+    margin: 0 1.25% 3% 1.5%;
+    width: 91%;
+    display: inline-block;
     transition: 0.3s;
     box-shadow: 5px 5px var(--nav-shadow);
     background-color: var(--nav-back-color);
@@ -43,6 +47,7 @@
         word-wrap: break-word;
         overflow: hidden;
         max-height: 2.5em;
+        min-height: 2.5em;
     }
 
     .tag-group{
@@ -81,7 +86,7 @@
     opacity: 0.4;
     z-index: 10;
     margin-top: -19%;
-    margin-right: -35px;
+    margin-right: -50px;
     position: relative;
     float: right;
     transition: 0.5s;

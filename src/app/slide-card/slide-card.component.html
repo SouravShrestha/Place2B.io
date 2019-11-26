@@ -1,133 +1,24 @@
-<owl-carousel #owlElement [options]="{loop:true, touchDrag:false, mouseDrag:false}">
-    <div class="slide-card">
-        <img src="../../assets/images/Card-3.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-1.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-2.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-3.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-2.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-1.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-3.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-2.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
-    </div>
-    <div class="slide-card">
-        <img src="../../assets/images/Card-1.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
+<owl-carousel-o [options]="customOptions" #owl_car (dragging)="nextPage()">
+    <ng-container *ngFor="let slide of slides">
+        <ng-template carouselSlide>
+            <a routerLink="/slide_details/{{ slide._id }}">
+                <div class="slide-card">
+                    <img [src]="slide.url">
+                    <h3>{{slide.title}}</h3>
+                    <p class="desc-slide">{{slide.description}}</p>
+                    <div class="tag-group">
+                        <span class="tag" [ngStyle]="{'background-color': '#' + tag.bg, 'color': '#' + tag.text_color}" *ngFor="let tag of slide.tags">#{{ tag.name.toLowerCase() }}</span>
+                    </div>
+                </div>
+            </a>
+        </ng-template>
+    </ng-container>
+</owl-carousel-o>
+    <div class="btn-next" *ngIf="right" (click)="owl_car.next(); nextPage()">
+        <img *ngIf="right" src="../../assets/images/next-btn.svg"/>
     </div>
     
-    <div class="slide-card">
-        <img src="../../assets/images/Card-3.svg">
-        <h3>Angular 8 Firebase Project Course</h3>
-        <p class="desc-slide">The Angular Firebase PWA Course will teach you how to build a complex progressive web app with Angular 8</p>
-        <div class="tag-group">
-          <span class="tag" [ngStyle]="{'background-color': '#' + bgColor}">#angular</span>
-          <span class="tag">#node</span>
-          <span class="tag">#auth</span>
-          <span class="tag">#firebase</span>
-          <span class="tag">#cloud-functions</span>
-        </div>
+    <div class="btn-prev" *ngIf="left" (click)="owl_car.prev(); prevPage()">
+        <img src="../../assets/images/prev-btn.svg"/>
     </div>
-    
-
-</owl-carousel>
-
-<div class="btn-next" *ngIf="right" (click)="nextStatus ? nextPage() : ''">
-    <img *ngIf="right" src="../../assets/images/next-btn.svg"/>
-</div>
-
-<div class="btn-prev" *ngIf="left" (click)="prevStatus ? prevPage() : ''">
-    <img src="../../assets/images/prev-btn.svg"/>
-</div>
+<br>

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { SlideCardComponent } from './slide-card/slide-card.component';
-import { OwlModule } from 'ngx-owl-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FooterComponent } from './footer/footer.component';
 import { SlideFollowingComponent } from './slide-following/slide-following.component';
 import { UploadComponent } from './upload/upload.component';
@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
 import { TagsComponent } from './tags/tags.component';
 import { FormsModule } from '@angular/forms'; 
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgxTypedJsModule,
+    HttpModule,
     BrowserAnimationsModule,
-    OwlModule,
+    CarouselModule,
     FormsModule
   ],
   providers: [],
