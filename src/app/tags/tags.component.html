@@ -18,11 +18,9 @@
     </div>
     <br>
     <div class="tags-container">
-      <div *ngFor="let x of temp">
-        <span *ngFor="let tag of tags_array_temp" style="float: left;">
-          <a routerLink='/tags/{{tag.name}}' class="tag" [ngStyle]="{'background-color':tag.color, 'color':tag.textColor}">#{{tag.name}}</a>
-        </span>
-      </div>
+      <span *ngFor="let tag of tags_array_temp" style="float: left;">
+        <a routerLink='/tags/{{tag.name}}' class="tag" [ngStyle]="{'background-color':tag.back, 'color':tag.color}">#{{tag.name}}</a>
+      </span>
     </div>
     <div style="clear: both;"></div>
     <div class="no-tags-hide" id="no-tags">

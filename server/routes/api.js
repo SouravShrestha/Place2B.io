@@ -37,4 +37,13 @@ router.post('/upload', async (req, res)=>{
     }
 });
 
+router.get('/tags', async (req, res)=>{
+    try{
+        const tags = await Slide.aggregate([{$project:{_id: 0, tags: 1}},{$unwind:"$tags"},{$group:{_id:"$tags"}}]);
+        res.json(tags);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
 module.exports = router;

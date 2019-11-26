@@ -10,19 +10,7 @@ const SlideSchema = mongoose.Schema({
         required:true
     },
     tags:{
-        type:[{
-            name:{
-                type:String
-            },
-            bg: {
-                type: String,
-                default: '4B4949'
-            },
-            text_color: {
-                type: String,
-                default: 'FFFFFF'
-            }
-        }],
+        type:[String],
         required:true
     },
     url:{

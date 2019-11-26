@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { SlidesService } from "../slides.service";
 import { Slide } from "../slide";
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { RandomBackFont } from "../random-back-font";
 
 @Component({
   selector: 'app-slide-card',
@@ -11,6 +12,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class SlideCardComponent implements OnInit {
 
   slides: Array<Slide>;
+  rbf = new RandomBackFont();
   curr = 0;
   ID=0;
   bgColor: string;

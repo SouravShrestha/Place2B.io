@@ -1,5 +1,9 @@
 @import "../../styles.scss";
 
+a{
+    color: var(--font-color);
+}
+
 .search-container{
     height: 50px;
     background-color: var(--nav-back-color);

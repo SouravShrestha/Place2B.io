@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SlidesService } from "../slides.service";
+import { Tag } from "./tag";
+import { RandomBackFont } from "../random-back-font";
 
 @Component({
   selector: 'app-tags',
@@ -7,19 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TagsComponent implements OnInit {
 
-  tags_array_main:any;
+  tags_array_main: Tag[] =[];
+  rbf = new RandomBackFont();
   tags_array_temp:any;
   tag_name: string;
-  temp;
+  random_colors: {_back:string, _font:string} = {'_back':'','_font':''};
+  tags:any;
 
-  constructor() { 
-    this.temp = Array(10).fill(4);
+  constructor(private _slidesService: SlidesService) { 
   }
 
   ngOnInit() {
-    this.tags_array_main = [{name:'angular',color:'#DC0530',textColor:'#FFFFFF'},{name:'react',color:'#09C372',textColor:'#FFFFFF'},{name:'advanced',color:'#757575',textColor:'#FFFFFF'},{name:'firebase',color:'#FFCB2B',textColor:'#2a2a2a'},{name:'web',color:'#2A2E35',textColor:'#FFFFFF'},{name:'2ndmod',color:'#669900',textColor:'#FFFFFF'},{name:'daily',color:'#E55523',textColor:'#FFFFFF'},{name:'java',color:'#669900',textColor:'#FFFFFF'},{name:'c',color:'#2A2E35',textColor:'#FFFFFF'},{name:'c++',color:'#757575',textColor:'#FFFFFF'},{name:'cloud-function',color:'#2775C3',textColor:'#FFFFFF'},{name:'python',color:'#2A2E35',textColor:'#FFFFFF'}];
-    this.tags_array_temp = this.tags_array_main;
-    this.tags_array_main.sort((a, b) => a.name > b.name ? 1 : -1);
+    this._slidesService.getTags().subscribe(res => {
+      res.forEach(element => {
+        var tag = element._id.toLowerCase();
+        this.rbf = new RandomBackFont();
+        this.random_colors = this.rbf.get_colors();
+        var font_color = this.random_colors._font;
+        var back_color = this.random_colors._back;
+        var obj = {
+          name: tag, color: font_color, back: back_color
+        }
+        if(!(this.tags_array_main.find(res => res.name == tag))){
+          this.tags_array_main.push(obj);
+        }
+        this.tags_array_temp = this.tags_array_main;
+        this.tags_array_main.sort((a, b) => a.name > b.name ? 1 : -1);
+      });
+    });
   }
 
   setFocus(){
