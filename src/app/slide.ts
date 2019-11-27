@@ -4,5 +4,6 @@ export class Slide {
     description: String;
     tags: [String];
     date: Date;
+    url:string;
     author: String;
 }

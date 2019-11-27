@@ -34,6 +34,8 @@ export class SlideCardComponent implements OnInit {
     pullDrag: true,
     dots: false,
     lazyLoad:true,
+    autoHeight:true,
+    autoWidth:true,
     navSpeed: 400,
     navText: ['', ''],
     responsive: {

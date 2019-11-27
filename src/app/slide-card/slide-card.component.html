@@ -3,7 +3,7 @@
         <ng-template carouselSlide>
             <a routerLink="/slide_details/{{ slide._id }}">
                 <div class="slide-card">
-                    <img class="owl-lazy" [src]="slide.url">
+                    <img class="owl-lazy" [src]="slide.url" alt="Slide Image">
                     <h3>{{slide.title}}</h3>
                     <p class="desc-slide">{{slide.description}}</p>
                     <div class="tag-group">

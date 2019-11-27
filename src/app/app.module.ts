@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxTypedJsModule} from 'ngx-typed-js';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,6 @@ import { UploadComponent } from './upload/upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
 import { TagsComponent } from './tags/tags.component';
-import { FormsModule } from '@angular/forms'; 
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -29,7 +29,9 @@ import { HttpModule } from '@angular/http';
     TagsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NgxTypedJsModule,
     HttpModule,

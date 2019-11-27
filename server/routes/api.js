@@ -15,7 +15,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true },(err)=>
 
 router.get('/recentSlides', async (req, res)=>{
     try{
-        const slides = await Slide.find().limit(6);
+        const slides = await Slide.find().limit(9);
         res.json(slides);
     }catch(err){
         res.json({message: err});

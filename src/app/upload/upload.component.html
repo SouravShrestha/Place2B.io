@@ -9,7 +9,7 @@
   <br>
   <div class="upload-container">
     <br>
-    <form>
+    <form [formGroup]="upload_form" (ngSubmit)="submitHandler()">
       <div class="modal-left">
       <img class="thumb-modal" src="../../assets/images/Card-2.svg">
       <div class="up-src">
@@ -27,11 +27,11 @@
         <div class="modal-right">
             <div class="attr-container">
                 <h2> Title </h2>
-                <input type="text" placeholder="Enter title"/>
+                <input type="text" placeholder="Enter title" formControlName="title"/>
                 <h2> Description </h2>
-                <textarea rows="4" placeholder="Describe your content"></textarea>
+                <textarea rows="4" placeholder="Describe your content" formControlName="description"></textarea>
                 <h2> Tags </h2>
-                <textarea rows="2" placeholder="Add tags [ Use ; for multiple tags ]"></textarea>
+                <textarea rows="2" placeholder="Add tags [ Use ; for multiple tags ]" formControlName="tags"></textarea>
             </div>
         </div>
     </form>
