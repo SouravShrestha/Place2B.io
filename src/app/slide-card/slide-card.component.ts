@@ -13,6 +13,10 @@ export class SlideCardComponent implements OnInit {
 
   slides: Array<Slide>;
   rbf = new RandomBackFont();
+  tags: string[]=[];
+  font: string[]=[];
+  back: string[]=[];
+  random_colors: {_back:string, _font:string} = {'_back':'','_font':''};
   curr = 0;
   ID=0;
   bgColor: string;
@@ -29,6 +33,7 @@ export class SlideCardComponent implements OnInit {
     slideBy: 3,
     pullDrag: true,
     dots: false,
+    lazyLoad:true,
     navSpeed: 400,
     navText: ['', ''],
     responsive: {
@@ -53,7 +58,25 @@ export class SlideCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._slidesService.getRecentSlides().subscribe(res => this.slides = res);
+    this._slidesService.getRecentSlides().subscribe(res => {
+      this.slides = res;
+    });
+  }
+
+  getColor(name:string){
+    if(!(this.tags.indexOf(name)>-1)){
+      this.tags.push(name);
+      this.rbf = new RandomBackFont();
+      this.random_colors = this.rbf.get_colors();
+      this.font.push(this.random_colors._font);
+      console.log(this.random_colors._font);
+      this.back.push(this.random_colors._back);
+    }
+    var obj = {
+      color: this.font[this.tags.indexOf(name)], back: this.back[this.tags.indexOf(name)]
+    }
+    console.log(obj.color);
+    return obj;
   }
 
   getID(){
