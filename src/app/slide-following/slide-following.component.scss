@@ -1,14 +1,15 @@
 @import "../slide-card/slide-card.component.scss";
 
 .slide-container{
+    column-count: 3;
+    column-gap: 30px;
     width: 100%;
     padding: 1% 0;
-    margin-top: 10px;
 }
 
 .slide-card{
-    margin: 0 1.25% 3% 1.5%;
-    width: 30.5%;
+    margin: 15px 1.25% 3% 0;
+    width: 100%;
     display: inline-block;
     a{
         text-decoration: none;
