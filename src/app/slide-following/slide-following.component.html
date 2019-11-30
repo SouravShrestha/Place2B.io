@@ -3,9 +3,11 @@
     <a routerLink="/slide_details/{{ slide._id }}">
         <img [src]="slide.url">
         <h3>{{slide.title}}</h3>
-         <p class="desc-slide">{{slide.description}}</p>
-         <div class="tag-group">
-            <span class="tag" [ngStyle]="{'background-color': '#' + 'AF6EAB', 'color': '#' + 'fffff'}" *ngFor="let tag of slide.tags">#{{ tag.toLowerCase() }}</span>
+        <p class="desc-slide">{{slide.description}}</p>
+        <div class="tag-group">
+          <div *ngFor="let tag of slide.tags">
+              <span class="tag" [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
+          </div>
         </div>
     </a>
   </div>

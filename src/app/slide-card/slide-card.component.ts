@@ -71,13 +71,13 @@ export class SlideCardComponent implements OnInit {
       this.rbf = new RandomBackFont();
       this.random_colors = this.rbf.get_colors();
       this.font.push(this.random_colors._font);
-      console.log(this.random_colors._font);
+      // console.log(this.random_colors._font);
       this.back.push(this.random_colors._back);
     }
     var obj = {
       color: this.font[this.tags.indexOf(name)], back: this.back[this.tags.indexOf(name)]
     }
-    console.log(obj.color);
+    // console.log(obj.color);
     return obj;
   }
 

@@ -15,7 +15,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true },(err)=>
 
 router.get('/recentSlides', async (req, res)=>{
     try{
-        const slides = await Slide.find().limit(9);
+        const slides = await Slide.find().limit(20);
         res.json(slides);
     }catch(err){
         res.json({message: err});
@@ -35,7 +35,7 @@ router.post('/upload', async (req, res)=>{
     }catch(err){
         res.json({message: err});
     }
-});
+});  
 
 router.get('/tags', async (req, res)=>{
     try{

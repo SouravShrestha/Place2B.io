@@ -10,6 +10,7 @@ export class SlidesService {
 
   result:any;
   temp:any;
+  fd = new FormData();
 
   constructor(private _http: Http) { 
   }
@@ -25,6 +26,9 @@ export class SlidesService {
   uploadSlide(slide: Slide){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this._http.post('/api/upload', JSON.stringify(slide), options).subscribe( res=>console.log(res));
+    return this._http.post('/api/upload', JSON.stringify(slide), options).subscribe(
+      res=>console.log(res)
+    );
   }
+  
 }

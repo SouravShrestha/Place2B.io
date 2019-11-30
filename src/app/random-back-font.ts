@@ -1,8 +1,10 @@
 export class RandomBackFont{
 
-    back_color = ["#1abc9c","#2ecc71","#e67e22","#3498db","#9b59b6","#c0392b","#8e44ad","#2c3e50"];
+    back_color = [
+        "#C91F37","#5D3F6A","#4D8FAC","#22A7F0","#1F4788","#8DB255","#16A085","#E2B13C","#F9690E","#757D75","#26C281","#264348","#F62459","#F58F84","#F47983","#19B5FE","#ABB7B7","#89C4F4"
+    ];
 
-    font_color = ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"];
+    font_color = ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#2a2a2a","#2a2a2a"];
 
     return_value: {_back:string, _font:string}={'_back':"","_font":""};
 

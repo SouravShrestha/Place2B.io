@@ -18,7 +18,8 @@ html{
     --laptop-screen:brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(605%) hue-rotate(179deg) brightness(85%) contrast(100%);
     --active-green-color:#09C372;
     --nav-active-icon-filter:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
-    --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);;
+    --image-filter:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);
     overflow-x: hidden;
 }
 
@@ -37,6 +38,7 @@ html[data-theme='light']{
     --nav-shadow:rgba(5, 7, 8, .02);
     --body-back:#FFF;
     --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(620%) hue-rotate(167deg) brightness(90%) contrast(88%);
+    --image-filter:brightness(0) saturate(100%) invert(32%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(64%) contrast(114%);
 }
 
 ::selection {
@@ -126,6 +128,7 @@ body{
 
 .heading{
     font-size: 56px;
+    letter-spacing: 1.5px;
 }
 
 .dashed-line{
