@@ -46,19 +46,19 @@ export class UploadComponent implements OnInit {
     var temp_tags = this.upload_form.value.tags;
     this.slide_to_upload.tags = temp_tags.split(";");
     this.slide_to_upload.author = "Sourav Shrestha";
-    this.slide_to_upload.url = "https://slidesgo.com/storage/33773/CIWoWdEtRHMdQ1BQUBqW8OvXk6ieN7IKtQ3jOslavBFDSr8c96QeFwdrfABCJcwpNlPVT2SbbdPgEhUJjspgcViPUmQf-9NEOvX3w19esY__sTb65RrVhGKKDNz7Iun0gatvUrF1Qs8gkX1TxzyCinw5qAauj07jgnC2LQzQ6xbtgVWV07L3vK5rRPVdKSpE2AdBMw%3Ds1600.png";
-    this._slidesService.uploadSlide(this.slide_to_upload);
-    this._router.navigateByUrl('/');
+    this._slidesService.upload_image(this.slide_to_upload);
+    // console.log(await this._slidesService.img_url);
+    // await this._slidesService.uploadSlide(this.slide_to_upload);
   }
 
-  pickFile(file_img){
+  async pickFile(file_img){
     this.selectedFile = file_img.target.files[0];
     var reader = new FileReader();
     reader.readAsDataURL(this.selectedFile);
-    reader.onload = (_event) =>{
+    reader.onload = async (_event) =>{
       this.img_url = reader.result;
       this.filename = this.selectedFile.name;
+      await this._slidesService.save_image(file_img.target.files[0]);
     };
   }
-
 }
