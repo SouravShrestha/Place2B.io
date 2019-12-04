@@ -13,6 +13,7 @@ export class UploadComponent implements OnInit {
 
   upload_form: FormGroup;
   slide_to_upload = new Slide();
+  uploading = false;
   selectedFile: File;
   img_url: any;
   filename:any;
@@ -25,7 +26,12 @@ export class UploadComponent implements OnInit {
       'title': ['',Validators.required],
       'description': ['',Validators.required],
       'tags': ['',Validators.required],
+      'url': ['']
     });
+  }
+
+  get url(){
+    return this.upload_form.get('url');
   }
 
   get title(){
@@ -46,9 +52,9 @@ export class UploadComponent implements OnInit {
     var temp_tags = this.upload_form.value.tags;
     this.slide_to_upload.tags = temp_tags.split(";");
     this.slide_to_upload.author = "Sourav Shrestha";
+    this.upload_form.disable();
+    this.uploading = true;
     this._slidesService.upload_image(this.slide_to_upload);
-    // console.log(await this._slidesService.img_url);
-    // await this._slidesService.uploadSlide(this.slide_to_upload);
   }
 
   async pickFile(file_img){
