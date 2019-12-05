@@ -104,6 +104,7 @@ body{
     color:var(--font-color);
     background-color: var(--body-back);
     font-family: 'MaipoSans-Heavy';
+    overflow: auto;
 }
 
 .mid-emoji{
@@ -115,15 +116,18 @@ body{
 }
 
 .body-content{
-    min-height: 95vh;
-    padding: 1.5% 3%;
+    min-height: 100vh;
+    padding: 0 3%;
+    overflow-y: hidden;
     transition: 0.5s;
     width: 88%;
     margin-left: 5%;
 }
 
+
 .temp-ref-main{
     min-height: 95vh;
+    margin-top: 1.5%;
 }
 
 .heading{
@@ -141,6 +145,7 @@ body{
 }
 
 .head-container{
+    margin-top: 1.5%;
     .heading{
         font-size: 48px;
     }

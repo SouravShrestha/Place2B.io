@@ -25,17 +25,67 @@
         <img src="../../assets/images/tag.svg" class="nav-icon"/>
       </li>
     </a>
-    <a routerLink="/profile">
+    <div (click)="clicked_profile()">
       <li [class.active]="router.url == '/profile'" title-tooltip="Profile">
         <img src="../../assets/images/ninja.png" class="nav-icon-avatar"/>
       </li>
-    </a>
+    </div>
   </ul>
+</div>
+
+<div style="width: 100%;height: 100vh;z-index: 300;background-color: rgba(42,42,42, 0.80);position: fixed;" *ngIf="click_profile" [@inOutAnimation]="click_profile==true">
+  <div class="modal-container">
+    <div class="column left-column" id="left-column">
+        <div class="temp_cont" *ngIf="curr_status==1">
+          <h1 class="_heading"> Sign in </h1>
+          <img src="../../assets/images/gplus.svg" class="logo">
+          <img src="../../assets/images/fb.svg" class="logo">
+          <p class="_para_">or use your account</p>
+          <input type="text" placeholder="Email"/> 
+          <input type="password" placeholder="Password"/>
+          <button class="btn-login">
+              SIGN IN
+          </button> 
+          <br>
+          <p class="_para_">Forgot your password?</p>
+        </div>
+        <div class="temp_cont sign_up" *ngIf="curr_status==0">
+            <h1 class="_heading"> Sign Up </h1>
+            <img src="../../assets/images/gplus.svg" class="logo">
+            <img src="../../assets/images/fb.svg" class="logo">
+            <p class="_para_">or use your email address</p>
+            <input type="text" placeholder="Name"/>
+            <input type="text" placeholder="Email" /> 
+            <input type="password" placeholder="Password" />
+            <input type="text" placeholder="Contact Number" />
+            <button class="btn-login">
+                SIGN UP
+            </button> 
+          </div>
+    </div>
+    <div class="column right-column" id="right-column">
+      <div class="temp_cont" *ngIf="curr_status==1">
+        <h1 class="_heading"> Hello, Friend!</h1>
+        <p class="_para"> Enter your personal details and start journey with us </p>
+        <button class="toggle-button" (click)="toggle_modal_view()">
+          SIGN UP
+        </button>
+      </div>
+      <div class="temp_cont" *ngIf="curr_status==0">
+          <h1 class="_heading"> Welcome Back!</h1>
+          <p class="_para"> To keep connected with us please login with your personal info </p>
+          <button class="toggle-button" (click)="toggle_modal_view()">
+            SIGN IN
+          </button>
+      </div>
+    </div>
+    <img src="../../assets/images/close_button.png" class="btn-close" (click)="close_modal()">
+  </div>
 </div>
 
 <div class="settings" id="settings" (mouseover)='toggle_hover_on_settings()' (mouseout)='toggle_hover_on_settings()'>
   <a routerLink="upload">
-    <div class="upload" title-tooltip="Upload Slide" [class.active-upload]="router.url == '/upload'">
+    <div class="upload" title-tooltip="Upload Slide" [class.active-upload]="router.url == '/upload'" id="upload">
        <img src="../../assets/images/upload.svg"/>
     </div>
   </a>

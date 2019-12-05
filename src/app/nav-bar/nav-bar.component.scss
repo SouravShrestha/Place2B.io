@@ -72,7 +72,7 @@
     background-color: var(--nav-back-color);
     border-radius: 0 0 0 35px;
     box-shadow: 5px 5px var(--nav-shadow);
-    z-index: 20;
+    z-index: 900;
 
     &:hover{
         top: 3%;
@@ -83,6 +83,7 @@
         width: 50%;
         height: 100%;
         float: left;
+        z-index: 1;
         background-color: var(--active-green-color);
         border-radius: 0 0 0 35px;
 
@@ -119,7 +120,6 @@
         width: 50%;
         height: 100%;
         float: right;
-
         &:hover{
             cursor: pointer;
         }
@@ -133,11 +133,165 @@
             font-size: 16px;
             font-family: 'MaipoSans-SemiBold';
             content: attr(title-tooltip);
+            white-space: pre;
             position: absolute;
             z-index: 100;
         }
     }
 
+}
+
+.modal-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--body-back);
+    transform: translateX(-50%) translateY(-50%);
+    width: 65%;
+    height: 90vh;
+}
+
+.column{
+    width: 50%;
+    height: 100%;
+    float: left; 
+    transition: 1s;
+}
+
+.right-column{
+    color: white;
+    padding: auto 10px;
+    // background: linear-gradient(to right, #FF4B2B, #FF416C); 
+    background: radial-gradient(circle farthest-side at 0% 50%,#FA503E 23.5%,rgba(240,166,17,0) 0)21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%,#ed4738 24%,rgba(240,166,17,0) 0)19px 30px,
+    linear-gradient(#FA503E 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#FA503E 0)0 0,
+    linear-gradient(150deg,#FA503E 24%,#ed4738 0,#ed4738 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#ed4738 0,#ed4738 76%,#FA503E 0)0 0,
+    linear-gradient(30deg,#FA503E 24%,#ed4738 0,#ed4738 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#ed4738 0,#ed4738 76%,#FA503E 0)0 0,
+    linear-gradient(90deg,#ed4738 2%,#FA503E 0,#FA503E 98%,#ed4738 0%)0 0 #FA503E;
+    background-size: 40px 60px;
+}
+
+.btn-close{
+    width: 30px;
+    position: absolute;
+    top:10px;
+    right: 10px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.left-column{
+    background-color: var(--body-back);
+}
+
+.column::after{
+    clear: both;
+}
+
+.toggle-button{
+    margin-top: 20px;
+    background-color: transparent;
+    color:#FFF;
+    font-size: 20px;
+    font-family: 'MaipoSans-SemiBold';
+    border: 2px #fff solid;
+    border-radius: 100px;
+    width: 200px;
+    height: 50px;
+    background-position: center;
+    transition: background 0.8s;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.logo{
+    width: 50px;
+    padding: 25px 10px 5px 10px;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+}
+
+._heading{
+    font-size: 42px;
+    font-family: 'MaipoSans-Black';
+    letter-spacing: 1.2px;
+}
+
+._para{
+    margin-top: 20px;
+    font-size: 20px;
+    max-width: 100%; 
+    padding: 10px 15%;
+    font-family: 'MaipoSans-Regular';
+}
+
+input{
+    font-size: 20px;
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background-color: var(--input-back);
+    border-radius: 5px;
+    border: none;
+    font-family: MaipoSans-Regular;
+    padding: 10px 15px;
+}
+
+._para_{
+    font-size: 18px;
+    max-width: 100%; 
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'MaipoSans-Regular';
+}
+
+.btn-login{
+    color: #FFF;
+    text-align: center;
+    width: 45%;
+    margin-top: 5%;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background-color: var(--nav-active-color);
+    font-family: MaipoSans-SemiBold;
+    font-size: 20px;
+    &:hover{
+            cursor: pointer;
+    }
+}
+
+.temp_cont{
+    position: relative;
+    left:50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+}
+
+.sign_up{
+    input{
+        font-size: 18px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    ._para_{
+        font-size: 16px; 
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .logo{
+        padding: 10px 10px 5px 10px;
+    }
+    .btn-login{
+        margin-top: 3%;
+        padding: 10px 15px;
+    }
 }
 
 @media(max-width:600px){
