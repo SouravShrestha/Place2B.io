@@ -15,6 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
 import { TagsComponent } from './tags/tags.component';
 import { HttpModule } from '@angular/http';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './auth.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { HttpModule } from '@angular/http';
     SlideFollowingComponent,
     UploadComponent,
     SearchComponent,
-    TagsComponent
+    TagsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, 
@@ -35,11 +40,16 @@ import { HttpModule } from '@angular/http';
     AppRoutingModule,
     NgxTypedJsModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

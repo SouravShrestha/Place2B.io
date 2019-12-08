@@ -7,61 +7,66 @@
     </a>
     <a routerLink="/search">
       <li [class.active]="router.url == '/search'" title-tooltip="Search">
-        <img src="../../assets/images/search.svg" class="nav-icon"/>
+        <img src="../../assets/images/search.svg" class="nav-icon" />
       </li>
     </a>
     <a routerLink="/slides">
       <li [class.active]="router.url == '/slides'" title-tooltip="Slides">
-        <img src="../../assets/images/slides.svg" class="nav-icon"/>
+        <img src="../../assets/images/slides.svg" class="nav-icon" />
       </li>
     </a>
     <a routerLink="/following">
       <li [class.active]="router.url == '/following'" title-tooltip="Following">
-        <img src="../../assets/images/following.svg" class="nav-icon"/>
+        <img src="../../assets/images/following.svg" class="nav-icon" />
       </li>
     </a>
     <a routerLink="/tags">
       <li [class.active]="router.url == '/tags'" title-tooltip="Tags">
-        <img src="../../assets/images/tag.svg" class="nav-icon"/>
+        <img src="../../assets/images/tag.svg" class="nav-icon" />
       </li>
     </a>
     <div (click)="clicked_profile()">
-      <li [class.active]="router.url == '/profile'" title-tooltip="Profile">
-        <img src="../../assets/images/ninja.png" class="nav-icon-avatar"/>
+      <li [class.nav_active]="router.url == '/profile'" title-tooltip="Profile">
+        <img src="../../assets/images/ninja.png" class="nav-icon-avatar" />
       </li>
     </div>
   </ul>
 </div>
 
-<div style="width: 100%;height: 100vh;z-index: 300;background-color: rgba(42,42,42, 0.80);position: fixed;" *ngIf="click_profile" [@inOutAnimation]="click_profile==true">
+<div style="width: 100%;height: 100vh;z-index: 300;background-color: rgba(20,20,20, 0.90);position: fixed;"
+  *ngIf="click_profile" [@inOutAnimation]="click_profile==true">
   <div class="modal-container">
     <div class="column left-column" id="left-column">
-        <div class="temp_cont" *ngIf="curr_status==1">
+      <div class="temp_cont" *ngIf="curr_status==1">
+        <form [formGroup]="login_form" (ngSubmit)="login()">
           <h1 class="_heading"> Sign in </h1>
           <img src="../../assets/images/gplus.svg" class="logo">
           <img src="../../assets/images/fb.svg" class="logo">
           <p class="_para_">or use your account</p>
-          <input type="text" placeholder="Email"/> 
-          <input type="password" placeholder="Password"/>
+          <input type="text" placeholder="Email" formControlName="login_email" />
+          <input type="password" placeholder="Password" formControlName="login_password"/>
           <button class="btn-login">
-              SIGN IN
-          </button> 
-          <br>
-          <p class="_para_">Forgot your password?</p>
-        </div>
-        <div class="temp_cont sign_up" *ngIf="curr_status==0">
-            <h1 class="_heading"> Sign Up </h1>
-            <img src="../../assets/images/gplus.svg" class="logo">
-            <img src="../../assets/images/fb.svg" class="logo">
-            <p class="_para_">or use your email address</p>
-            <input type="text" placeholder="Name"/>
-            <input type="text" placeholder="Email" /> 
-            <input type="password" placeholder="Password" />
-            <input type="text" placeholder="Contact Number" />
-            <button class="btn-login">
-                SIGN UP
-            </button> 
-          </div>
+            SIGN IN
+          </button>
+        </form>
+        <br>
+        <p class="_para_">Forgot your password?</p>
+      </div>
+      <div class="temp_cont sign_up" *ngIf="curr_status==0">
+        <form [formGroup]="sign_up_form" (ngSubmit)="signUp()">
+          <h1 class="_heading"> Sign Up </h1>
+          <img src="../../assets/images/gplus.svg" class="logo">
+          <img src="../../assets/images/fb.svg" class="logo">
+          <p class="_para_">or use your email address</p>
+          <input type="text" placeholder="Name" formControlName="name" />
+          <input type="text" placeholder="Email" formControlName="email" />
+          <input type="password" placeholder="Password" formControlName="password" />
+          <input type="text" placeholder="Contact Number" formControlName="contact_number" />
+          <button class="btn-login">
+            SIGN UP
+          </button>
+        </form>
+      </div>
     </div>
     <div class="column right-column" id="right-column">
       <div class="temp_cont" *ngIf="curr_status==1">
@@ -72,11 +77,11 @@
         </button>
       </div>
       <div class="temp_cont" *ngIf="curr_status==0">
-          <h1 class="_heading"> Welcome Back!</h1>
-          <p class="_para"> To keep connected with us please login with your personal info </p>
-          <button class="toggle-button" (click)="toggle_modal_view()">
-            SIGN IN
-          </button>
+        <h1 class="_heading"> Welcome Back!</h1>
+        <p class="_para"> To keep connected with us please login with your personal info </p>
+        <button class="toggle-button" (click)="toggle_modal_view()">
+          SIGN IN
+        </button>
       </div>
     </div>
     <img src="../../assets/images/close_button.png" class="btn-close" (click)="close_modal()">
@@ -86,11 +91,10 @@
 <div class="settings" id="settings" (mouseover)='toggle_hover_on_settings()' (mouseout)='toggle_hover_on_settings()'>
   <a routerLink="upload">
     <div class="upload" title-tooltip="Upload Slide" [class.active-upload]="router.url == '/upload'" id="upload">
-       <img src="../../assets/images/upload.svg"/>
+      <img src="../../assets/images/upload.svg" />
     </div>
   </a>
   <div class="brightness" id="brightness" title-tooltip="Lights On" (click)="changeTheme()">
-    <img src="{{img_src}}" class="nav-icon"/>
+    <img src="{{img_src}}" class="nav-icon" />
   </div>
 </div>
-

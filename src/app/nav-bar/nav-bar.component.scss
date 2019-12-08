@@ -1,304 +1,328 @@
 @import "../../styles.scss";
 
 @mixin flexCenter() {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.nav-bar{
-    position: fixed;
-    transition: 0.5s;
-    float: left;
-    z-index: 100;
-    background-color: var(--nav-back-color);
-    text-align: center;
-    width: 5%;
-    height: 100vh;
+.nav-bar {
+  position: fixed;
+  transition: 0.5s;
+  float: left;
+  z-index: 100;
+  background-color: var(--nav-back-color);
+  text-align: center;
+  width: 5%;
+  height: 100vh;
+  box-shadow: 5px 5px var(--nav-shadow);
+  li {
+    padding: 23px 0;
+    &:hover {
+      cursor: pointer;
+      .nav-icon {
+        filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(4830%) hue-rotate(337deg) brightness(100%)
+          contrast(97%);
+      }
+    }
+    &:hover:after {
+      background-color: var(--active-green-color);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 5px;
+      left: 60px;
+      font-size: 16px;
+      font-family: "MaipoSans-SemiBold";
+      content: attr(title-tooltip);
+      position: absolute;
+      z-index: 100;
+    }
+  }
+  .active {
+    background-color: var(--nav-active-color);
     box-shadow: 5px 5px var(--nav-shadow);
-    li{
-        padding: 23px 0;
-        &:hover{
-            cursor: pointer;
-            .nav-icon{ 
-                filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(4830%) hue-rotate(337deg) brightness(100%) contrast(97%);
-            }
-        }
-        &:hover:after{
-            background-color: var(--active-green-color);
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 5px;
-            left:60px;
-            font-size: 16px;
-            font-family: 'MaipoSans-SemiBold';
-            content: attr(title-tooltip);
-            position: absolute;
-            z-index: 100;
-        }
+    img {
+      filter: var(--nav-active-icon-filter);
     }
-    .active{
-        background-color: var(--nav-active-color);
-        box-shadow: 5px 5px var(--nav-shadow);
-        img{
-            filter: var(--nav-active-icon-filter);
-        }
-        &:hover{
-            img{
-                filter: var(--nav-active-icon-filter);
-            }
-        }
+    &:hover {
+      img {
+        filter: var(--nav-active-icon-filter);
+      }
     }
-
+  }
 }
 
-.nav-icon{
-    width: 30px;
-    filter: var(--nav-inactive-icon-filter);
+.nav_active {
+  background-color: var(--nav-active-color);
+  box-shadow: 5px 5px var(--nav-shadow);
 }
 
-.nav-icon-avatar{
-    margin-top: -5px;
-    width: 40px;
+.nav-icon {
+  width: 30px;
+  filter: var(--nav-inactive-icon-filter);
 }
 
-.settings{
-    width: 12%;
-    height: 10%;
-    position: fixed;
-    transition-duration: 0.5s;
-    right: 3%;
-    top:3%;
-    background-color: var(--nav-back-color);
-    border-radius: 0 0 0 35px;
-    box-shadow: 5px 5px var(--nav-shadow);
-    z-index: 900;
-
-    &:hover{
-        top: 3%;
-    }
-
-    .upload{
-        @include flexCenter();
-        width: 50%;
-        height: 100%;
-        float: left;
-        z-index: 1;
-        background-color: var(--active-green-color);
-        border-radius: 0 0 0 35px;
-
-        img{
-            width: 30px;
-            margin-left: 5px;
-        }
-
-        &:hover{
-            cursor: pointer;
-        }
-        
-        &:hover:after{
-            background-color: var(--nav-active-color);
-            color: #fff;
-            top:80px;
-            left: -35px;
-            padding: 4px 12px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-family: 'MaipoSans-SemiBold';
-            content: attr(title-tooltip);
-            position: absolute;
-            z-index: 100;
-        }
-    }
-
-    .active-upload{
-        background-color: var(--nav-active-color);
-    }
-
-    .brightness{
-        @include flexCenter();
-        width: 50%;
-        height: 100%;
-        float: right;
-        &:hover{
-            cursor: pointer;
-        }
-        &:hover:after{
-            background-color: var(--nav-active-color);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 5px;
-            right: 0;
-            top:80px;
-            font-size: 16px;
-            font-family: 'MaipoSans-SemiBold';
-            content: attr(title-tooltip);
-            white-space: pre;
-            position: absolute;
-            z-index: 100;
-        }
-    }
-
+.nav-icon-avatar {
+  margin-top: -5px;
+  width: 40px;
 }
 
-.modal-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: var(--body-back);
-    transform: translateX(-50%) translateY(-50%);
-    width: 65%;
-    height: 90vh;
-}
+.settings {
+  width: 12%;
+  height: 10%;
+  position: fixed;
+  transition-duration: 0.5s;
+  right: 3%;
+  top: 3%;
+  background-color: var(--nav-back-color);
+  border-radius: 0 0 0 35px;
+  box-shadow: 5px 5px var(--nav-shadow);
+  z-index: 900;
 
-.column{
+  &:hover {
+    top: 3%;
+  }
+
+  .upload {
+    @include flexCenter();
     width: 50%;
     height: 100%;
-    float: left; 
-    transition: 1s;
-}
+    float: left;
+    z-index: 1;
+    background-color: var(--active-green-color);
+    border-radius: 0 0 0 35px;
 
-.right-column{
-    color: white;
-    padding: auto 10px;
-    // background: linear-gradient(to right, #FF4B2B, #FF416C); 
-    background: radial-gradient(circle farthest-side at 0% 50%,#FA503E 23.5%,rgba(240,166,17,0) 0)21px 30px,
-    radial-gradient(circle farthest-side at 0% 50%,#ed4738 24%,rgba(240,166,17,0) 0)19px 30px,
-    linear-gradient(#FA503E 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#FA503E 0)0 0,
-    linear-gradient(150deg,#FA503E 24%,#ed4738 0,#ed4738 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#ed4738 0,#ed4738 76%,#FA503E 0)0 0,
-    linear-gradient(30deg,#FA503E 24%,#ed4738 0,#ed4738 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#ed4738 0,#ed4738 76%,#FA503E 0)0 0,
-    linear-gradient(90deg,#ed4738 2%,#FA503E 0,#FA503E 98%,#ed4738 0%)0 0 #FA503E;
-    background-size: 40px 60px;
-}
-
-.btn-close{
-    width: 30px;
-    position: absolute;
-    top:10px;
-    right: 10px;
-    &:hover{
-        cursor: pointer;
-    }
-}
-
-.left-column{
-    background-color: var(--body-back);
-}
-
-.column::after{
-    clear: both;
-}
-
-.toggle-button{
-    margin-top: 20px;
-    background-color: transparent;
-    color:#FFF;
-    font-size: 20px;
-    font-family: 'MaipoSans-SemiBold';
-    border: 2px #fff solid;
-    border-radius: 100px;
-    width: 200px;
-    height: 50px;
-    background-position: center;
-    transition: background 0.8s;
-    &:hover{
-        cursor: pointer;
-    }
-}
-
-.logo{
-    width: 50px;
-    padding: 25px 10px 5px 10px;
-
-    &:hover{
-        cursor: pointer;
+    img {
+      width: 30px;
+      margin-left: 5px;
     }
 
-}
+    &:hover {
+      cursor: pointer;
+    }
 
-._heading{
-    font-size: 42px;
-    font-family: 'MaipoSans-Black';
-    letter-spacing: 1.2px;
-}
+    &:hover:after {
+      background-color: var(--nav-active-color);
+      color: #fff;
+      top: 80px;
+      left: -35px;
+      padding: 4px 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: "MaipoSans-SemiBold";
+      content: attr(title-tooltip);
+      position: absolute;
+      z-index: 100;
+    }
+  }
 
-._para{
-    margin-top: 20px;
-    font-size: 20px;
-    max-width: 100%; 
-    padding: 10px 15%;
-    font-family: 'MaipoSans-Regular';
-}
-
-input{
-    font-size: 20px;
-    width: 70%;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    background-color: var(--input-back);
-    border-radius: 5px;
-    border: none;
-    font-family: MaipoSans-Regular;
-    padding: 10px 15px;
-}
-
-._para_{
-    font-size: 18px;
-    max-width: 100%; 
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-family: 'MaipoSans-Regular';
-}
-
-.btn-login{
-    color: #FFF;
-    text-align: center;
-    width: 45%;
-    margin-top: 5%;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50px;
+  .active-upload {
     background-color: var(--nav-active-color);
-    font-family: MaipoSans-SemiBold;
-    font-size: 20px;
-    &:hover{
-            cursor: pointer;
+  }
+
+  .brightness {
+    @include flexCenter();
+    width: 50%;
+    height: 100%;
+    float: right;
+    &:hover {
+      cursor: pointer;
     }
+    &:hover:after {
+      background-color: var(--nav-active-color);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 5px;
+      right: 0;
+      top: 80px;
+      font-size: 16px;
+      font-family: "MaipoSans-SemiBold";
+      content: attr(title-tooltip);
+      white-space: pre;
+      position: absolute;
+      z-index: 100;
+    }
+  }
 }
 
-.temp_cont{
-    position: relative;
-    left:50%;
-    top:50%;
-    transform: translateX(-50%) translateY(-50%);
-    text-align: center;
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: var(--body-back);
+  transform: translateX(-50%) translateY(-50%);
+  width: 65%;
+  height: 90vh;
 }
 
-.sign_up{
-    input{
-        font-size: 18px;
-        margin-top: 15px;
-        margin-bottom: 10px;
-    }
-    ._para_{
-        font-size: 16px; 
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-    .logo{
-        padding: 10px 10px 5px 10px;
-    }
-    .btn-login{
-        margin-top: 3%;
-        padding: 10px 15px;
-    }
+.column {
+  width: 50%;
+  height: 100%;
+  float: left;
+  transition: 1s;
 }
 
-@media(max-width:600px){
-    .nav-bar{
-        display: none;
-    }
-    .settings{
-        display: none;
-    }
+.right-column {
+  color: white;
+  padding: auto 10px;
+  background: radial-gradient(circle farthest-side at 0% 50%, #fa503e 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%, #ed4738 24%, rgba(240, 166, 17, 0) 0) 19px 30px,
+    linear-gradient(#fa503e 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #fa503e 0) 0 0,
+    linear-gradient(
+        150deg,
+        #fa503e 24%,
+        #ed4738 0,
+        #ed4738 26%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 74%,
+        #ed4738 0,
+        #ed4738 76%,
+        #fa503e 0
+      )
+      0 0,
+    linear-gradient(
+        30deg,
+        #fa503e 24%,
+        #ed4738 0,
+        #ed4738 26%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 74%,
+        #ed4738 0,
+        #ed4738 76%,
+        #fa503e 0
+      )
+      0 0,
+    linear-gradient(90deg, #ed4738 2%, #fa503e 0, #fa503e 98%, #ed4738 0%) 0 0 #fa503e;
+  background-size: 40px 60px;
+}
+
+.btn-close {
+  width: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.left-column {
+  background-color: var(--body-back);
+}
+
+.column::after {
+  clear: both;
+}
+
+.toggle-button {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  font-family: "MaipoSans-SemiBold";
+  border: 2px #fff solid;
+  border-radius: 100px;
+  width: 200px;
+  height: 50px;
+  background-position: center;
+  transition: background 0.8s;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.logo {
+  width: 50px;
+  padding: 25px 10px 5px 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+._heading {
+  font-size: 42px;
+  font-family: "MaipoSans-Black";
+  letter-spacing: 1.2px;
+}
+
+._para {
+  margin-top: 20px;
+  font-size: 20px;
+  max-width: 100%;
+  padding: 10px 15%;
+  font-family: "MaipoSans-Regular";
+}
+
+input {
+  font-size: 20px;
+  width: 70%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background-color: var(--input-back);
+  border-radius: 5px;
+  border: none;
+  font-family: MaipoSans-Regular;
+  padding: 10px 15px;
+}
+
+._para_ {
+  font-size: 18px;
+  max-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: "MaipoSans-Regular";
+}
+
+.btn-login {
+  color: #fff;
+  text-align: center;
+  width: 45%;
+  margin-top: 5%;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  background-color: var(--nav-active-color);
+  font-family: MaipoSans-SemiBold;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.temp_cont {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+.sign_up {
+  input {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  ._para_ {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .logo {
+    padding: 10px 10px 5px 10px;
+  }
+  .btn-login {
+    margin-top: 3%;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-bar {
+    display: none;
+  }
+  .settings {
+    display: none;
+  }
 }
