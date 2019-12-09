@@ -17,7 +17,10 @@ export class AuthService {
         this.document.getElementById('right-column').style.transform = "translateX(0%)";
         this.document.getElementById('left-column').style.transform = "translateX(0%)";
       },
-      (err) => console.log(err)
+      (err) => {
+        console.log(err);
+        this.data.changeUserAlreadyExistsStatus(true);
+      }
     );
   }
 
@@ -35,9 +38,14 @@ export class AuthService {
         if (this.document.getElementById("temp-ref-main"))
           this.document.getElementById("temp-ref-main").style.marginRight = '0px';
         window.scrollTo(0, scrollY * -1);
-            this._router.navigateByUrl('/profile');
+        if(localStorage.getItem('last_call')==null)
+          this._router.navigateByUrl('/profile');
+        else{
+          console.log("/"+localStorage.getItem('last_call'));
+          this._router.navigateByUrl("/"+localStorage.getItem('last_call'));
+        }
       },
-      (err) => console.log(err)
+      (err) => {console.log(err); this.data.changeInvalidEmailPasswordStatus(true)}
     );
   }
 

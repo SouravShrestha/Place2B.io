@@ -44,9 +44,12 @@ export class NavBarComponent implements OnInit {
   register_user = new User();
   login_user = new User();
   _para = 'Enter your personal details and start journey with us';
+  snackbar_must = false;
   curr_status = 1; // login
   click_profile = false;
   hover_on_settings = true;
+  invalid_email_password = false;
+  user_already_exists = false;
   normal_pos = true;
   img_src = '../../assets/images/set-light.svg';
   src_land: string;
@@ -56,27 +59,29 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.data.curr_src.subscribe(src_land => this.src_land = src_land);
+    this.data.curr_user_already_exists.subscribe(user_already_exists => this.user_already_exists = user_already_exists);
+    this.data.curr_invalid_email_password.subscribe(invalid_email_password => this.invalid_email_password = invalid_email_password);
     this.data.curr_form_status.subscribe(curr_form_status => this.curr_status = curr_form_status);
     this.data.curr_modal_status.subscribe(curr_modal_status => this.click_profile = curr_modal_status);
     this.sign_up_form = this.fb.group({
       'name': ['', Validators.required],
-      'email': ['', Validators.required],
+      'email': ['', [Validators.required, Validators.email]],
       'password': ['', Validators.required],
       'contact_number': ['', Validators.required],
       'gender': ['male']
     });
     this.login_form = this.fb.group({
-      'login_email': ['', Validators.required],
+      'login_email': ['', [Validators.required, Validators.email]],
       'login_password': ['', Validators.required]
     });
   }
 
-  get login_name() {
-    return this.sign_up_form.get('login_name');
+  get login_email() {
+    return this.login_form.get('login_email');
   }
 
   get login_password() {
-    return this.sign_up_form.get('login_password');
+    return this.login_form.get('login_password');
   }
 
   get name() {
@@ -148,7 +153,40 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  clicked_fav() {
+    this.data.changeInvalidEmailPasswordStatus(false);
+    localStorage.setItem("last_call", "fav");
+    this.data.changeUserAlreadyExistsStatus(false);
+    this._profileService.getProfile().subscribe(
+      res => {
+        this.router.navigateByUrl('/fav');
+      },
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.snackbar_must = true;
+            this.curr_status = 1;
+            this.click_profile = true;
+            const scrollY = this.document.documentElement.scrollTop;
+            const sbw = window.innerWidth - document.documentElement.clientWidth;
+            this.document.getElementById("body-main").style.position = 'fixed';
+            this.document.getElementById("upload").style.display = 'none';
+            this.document.getElementById("settings").style.width = '6%';
+            this.document.getElementById("brightness").style.width = '100%';
+            if (this.document.getElementById("temp-ref-main"))
+              this.document.getElementById("temp-ref-main").style.marginRight = sbw + 'px';
+            this.document.getElementById("body-main").style.top = '-' + scrollY + 'px';
+          }
+        }
+      }
+    );
+  }
+
   clicked_profile() {
+    this.snackbar_must = false;
+    this.data.changeInvalidEmailPasswordStatus(false);
+    localStorage.setItem("last_call", "profile");
+    this.data.changeUserAlreadyExistsStatus(false);
     this._profileService.getProfile().subscribe(
       res => {
         this.router.navigateByUrl('/profile');
@@ -156,6 +194,35 @@ export class NavBarComponent implements OnInit {
       err => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
+            this.curr_status = 1;
+            this.click_profile = true;
+            const scrollY = this.document.documentElement.scrollTop;
+            const sbw = window.innerWidth - document.documentElement.clientWidth;
+            this.document.getElementById("body-main").style.position = 'fixed';
+            this.document.getElementById("upload").style.display = 'none';
+            this.document.getElementById("settings").style.width = '6%';
+            this.document.getElementById("brightness").style.width = '100%';
+            if (this.document.getElementById("temp-ref-main"))
+              this.document.getElementById("temp-ref-main").style.marginRight = sbw + 'px';
+            this.document.getElementById("body-main").style.top = '-' + scrollY + 'px';
+          }
+        }
+      }
+    );
+  }
+
+  clicked_upload() {
+    this.data.changeInvalidEmailPasswordStatus(false);
+    localStorage.setItem("last_call", "upload");
+    this.data.changeUserAlreadyExistsStatus(false);
+    this._profileService.getProfile().subscribe(
+      res => {
+        this.router.navigateByUrl('/upload');
+      },
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.snackbar_must = true;
             this.curr_status = 1;
             this.click_profile = true;
             const scrollY = this.document.documentElement.scrollTop;
@@ -184,10 +251,14 @@ export class NavBarComponent implements OnInit {
       this.document.getElementById("temp-ref-main").style.marginRight = '0px';
     window.scrollTo(0, scrollY * -1);
     this.click_profile = false;
-    //console.log(this.click_profile);
   }
 
   toggle_modal_view() {
+    this.snackbar_must = false;
+    this.data.changeInvalidEmailPasswordStatus(false);
+    this.data.changeUserAlreadyExistsStatus(false);
+    this.login_form.reset();
+    this.sign_up_form.reset();
     if (this.curr_status == 1) { //login
       this.data.changeFormStatus(0);
       this.document.getElementById('right-column').style.transform = "translateX(-100%)";

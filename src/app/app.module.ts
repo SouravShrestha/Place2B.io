@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { FavComponent } from './fav/fav.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     UploadComponent,
     SearchComponent,
     TagsComponent,
-    ProfileComponent
+    ProfileComponent,
+    FavComponent
   ],
   imports: [
     BrowserModule, 

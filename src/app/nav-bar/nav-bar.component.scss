@@ -95,6 +95,9 @@
     img {
       width: 30px;
       margin-left: 5px;
+      position: relative;
+      transform: translateY(-50%);
+      top:50%;
     }
 
     &:hover {
@@ -151,8 +154,8 @@
   left: 50%;
   background-color: var(--body-back);
   transform: translateX(-50%) translateY(-50%);
-  width: 65%;
-  height: 90vh;
+  width: 75%;
+  height: 95vh;
 }
 
 .column {
@@ -162,7 +165,16 @@
   transition: 1s;
 }
 
+.form-container {
+  width: 65%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+}
+
 .right-column {
+  width: 50%;
   color: white;
   padding: auto 10px;
   background: radial-gradient(circle farthest-side at 0% 50%, #fa503e 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px,
@@ -256,7 +268,7 @@
 
 input {
   font-size: 20px;
-  width: 70%;
+  width: calc(100% - 30px);
   margin-top: 10px;
   margin-bottom: 15px;
   background-color: var(--input-back);
@@ -266,11 +278,32 @@ input {
   padding: 10px 15px;
 }
 
+.warning-text {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: -2px;
+  text-align: match-parent;
+  line-height: 14px;
+  font-family: MaipoSans-Regular;
+  font-size: 14px;
+  color: #ed4738;
+}
+
+.warning-text-main {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 16px;
+  font-family: MaipoSans-Regular;
+  font-size: 16px;
+  color: #ed4738;
+}
+
 ._para_ {
   font-size: 18px;
   max-width: 100%;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
   font-family: "MaipoSans-Regular";
 }
 
@@ -278,6 +311,7 @@ input {
   color: #fff;
   text-align: center;
   width: 45%;
+  position: relative;
   margin-top: 5%;
   border: none;
   padding: 10px 15px;
@@ -287,6 +321,28 @@ input {
   font-size: 20px;
   &:hover {
     cursor: pointer;
+  }
+}
+
+button:disabled {
+  background-color: var(--nav-back-color);
+  &:hover {
+    cursor: not-allowed;
+  }
+  &:hover:after {
+    background-color: var(--active-green-color);
+    color: #fff;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10%);
+    padding: 4px 12px;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "MaipoSans-SemiBold";
+    content: attr(title-tooltip);
+    z-index: 100;
   }
 }
 
@@ -316,6 +372,20 @@ input {
     margin-top: 3%;
     padding: 10px 15px;
   }
+}
+
+.snackbar{
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 100%;
+  color:white;
+  text-align: center;
+  font-size: 16px;
+  font-family: "MaipoSans-Bold";
+  padding: 5px 0;
+  background-color: var(--active-green-color);
 }
 
 @media (max-width: 600px) {
