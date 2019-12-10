@@ -13,16 +13,15 @@
   z-index: 100;
   background-color: var(--nav-back-color);
   text-align: center;
-  width: 5%;
+  width: 70px;
   height: 100vh;
   box-shadow: 5px 5px var(--nav-shadow);
   li {
-    padding: 23px 0;
+    padding: 26px 0;
     &:hover {
       cursor: pointer;
       .nav-icon {
-        filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(4830%) hue-rotate(337deg) brightness(100%)
-          contrast(97%);
+        filter: var(--_filter);
       }
     }
     &:hover:after {
@@ -40,7 +39,7 @@
   }
   .active {
     background-color: var(--nav-active-color);
-    box-shadow: 5px 5px var(--nav-shadow);
+    box-shadow: 0px 10px 5px var(--nav-shadow), 0px -10px 5px var(--nav-shadow);
     img {
       filter: var(--nav-active-icon-filter);
     }
@@ -105,7 +104,7 @@
     }
 
     &:hover:after {
-      background-color: var(--nav-active-color);
+      background-color: var(--active-green-color);
       color: #fff;
       top: 80px;
       left: -35px;
@@ -132,7 +131,7 @@
       cursor: pointer;
     }
     &:hover:after {
-      background-color: var(--nav-active-color);
+      background-color: var(--active-green-color);
       color: #fff;
       padding: 4px 12px;
       border-radius: 5px;
@@ -177,35 +176,8 @@
   width: 50%;
   color: white;
   padding: auto 10px;
-  background: radial-gradient(circle farthest-side at 0% 50%, #fa503e 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px,
-    radial-gradient(circle farthest-side at 0% 50%, #ed4738 24%, rgba(240, 166, 17, 0) 0) 19px 30px,
-    linear-gradient(#fa503e 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #fa503e 0) 0 0,
-    linear-gradient(
-        150deg,
-        #fa503e 24%,
-        #ed4738 0,
-        #ed4738 26%,
-        rgba(240, 166, 17, 0) 0,
-        rgba(240, 166, 17, 0) 74%,
-        #ed4738 0,
-        #ed4738 76%,
-        #fa503e 0
-      )
-      0 0,
-    linear-gradient(
-        30deg,
-        #fa503e 24%,
-        #ed4738 0,
-        #ed4738 26%,
-        rgba(240, 166, 17, 0) 0,
-        rgba(240, 166, 17, 0) 74%,
-        #ed4738 0,
-        #ed4738 76%,
-        #fa503e 0
-      )
-      0 0,
-    linear-gradient(90deg, #ed4738 2%, #fa503e 0, #fa503e 98%, #ed4738 0%) 0 0 #fa503e;
-  background-size: 40px 60px;
+  background-color: var(--nav-active-color);
+  background-image: url(../../assets/images/back_anim.svg);
 }
 
 .btn-close {
@@ -286,7 +258,7 @@ input {
   line-height: 14px;
   font-family: MaipoSans-Regular;
   font-size: 14px;
-  color: #ed4738;
+  color: #FF4D4D;
 }
 
 .warning-text-main {
@@ -296,7 +268,7 @@ input {
   line-height: 16px;
   font-family: MaipoSans-Regular;
   font-size: 16px;
-  color: #ed4738;
+  color: #FF4D4D;
 }
 
 ._para_ {

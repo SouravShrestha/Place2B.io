@@ -2,42 +2,46 @@
 
 
 html{
-    --nav-back-color:#2A2E35;
-    --nav-active-color:#FA503E;
-    --font-color:#FFF;
-    --desc-color:#8B8F90;
-    --line-color:#2A2E35;
+    --nav-back-color:#1c2939;
+    --nav-active-color:rgb(56, 107, 245);
+    --font-color:#dadde4;
+    --desc-color:hsla(0,0%,100%,.5);
+    --line-color:#8197a4;
     --line-color-modal:#FFF;
     --input-back:#FFF;
-    --next-btn:none;
-    --prev-btn:none;
+    --next-btn:brightness(0) saturate(100%) invert(19%) sepia(30%) saturate(733%) hue-rotate(173deg) brightness(94%) contrast(86%);
+    --prev-btn:brightness(0) saturate(100%) invert(19%) sepia(30%) saturate(733%) hue-rotate(173deg) brightness(94%) contrast(86%);;
     --nav-shadow:rgba(18, 24, 27, 0.2);
     --modal-back:rgba(18, 24, 27,0.90);
-    --body-back:#12181B;
+    --body-back:#16202B;
     --laptop-border:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(335deg) brightness(110%) contrast(102%);
     --laptop-screen:brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(605%) hue-rotate(179deg) brightness(85%) contrast(100%);
-    --active-green-color:#09C372;
+    --active-green-color:#75A441;
     --nav-active-icon-filter:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
     --image-filter:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    --_filter: brightness(0) saturate(100%) invert(33%) sepia(77%) saturate(2366%) hue-rotate(215deg) brightness(98%) contrast(97%);
     --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);
     overflow-x: hidden;
 }
 
 html[data-theme='light']{
     --nav-back-color:#DAE0E7;
-    --font-color:#050404;
+    --font-color:#3a3a3a;
     --input-back:#DAE0E7;
+    --nav-active-color:#3c8cf0;
+    --_filter: brightness(0) saturate(100%) invert(51%) sepia(31%) saturate(5012%) hue-rotate(194deg) brightness(99%) contrast(90%);
     --line-color-modal:#2a2a2a;
+    --logo-filter:brightness(0) saturate(100%) invert(50%) sepia(98%) saturate(3178%) hue-rotate(197deg) brightness(102%) contrast(88%);
     --modal-back:rgba(255,255,255,0.90);
     --laptop-border:brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(605%) hue-rotate(179deg) brightness(85%) contrast(100%);
     --laptop-screen:brightness(0) saturate(100%) invert(93%) sepia(5%) saturate(281%) hue-rotate(172deg) brightness(97%) contrast(91%);
     --desc-color:#4B4949;
-    --next-btn:brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(620%) hue-rotate(167deg) brightness(90%) contrast(88%);
-    --prev-btn:brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(620%) hue-rotate(167deg) brightness(90%) contrast(88%);
-    --line-color:#DAE0E7;
+    --next-btn:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);
+    --prev-btn:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);
+    --line-color:#8197a4;
     --nav-shadow:rgba(5, 7, 8, .02);
-    --body-back:#FFF;
-    --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(620%) hue-rotate(167deg) brightness(90%) contrast(88%);
+    --body-back:#f1f1f1;
+    --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(41%) sepia(11%) saturate(369%) hue-rotate(189deg) brightness(92%) contrast(89%);
     --image-filter:brightness(0) saturate(100%) invert(32%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(64%) contrast(114%);
 }
 
@@ -55,6 +59,10 @@ router-outlet ~ * {
     position: absolute;
     height: 100%;
     width: 100%;
+}
+
+#logo{
+    filter: var(--logo-filter);
 }
 
 input:focus,
@@ -103,7 +111,7 @@ body{
     scroll-behavior: smooth;
     color:var(--font-color);
     background-color: var(--body-back);
-    font-family: 'MaipoSans-Heavy';
+    font-family: 'MaipoSans-Black';
     overflow: auto;
 }
 
@@ -120,8 +128,7 @@ body{
     padding: 0 3%;
     overflow-y: hidden;
     transition: 0.5s;
-    width: 88%;
-    margin-left: 5%;
+    margin-left: 70px;
 }
 
 
@@ -141,7 +148,7 @@ body{
     background-image: linear-gradient(to right, transparent 50%, var(--line-color) 50%);
     background-size: 12px 100%;
     width:100%;
-    height: 2.5px;
+    height: 1.5px;
 }
 
 .head-container{

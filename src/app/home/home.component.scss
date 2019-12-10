@@ -67,9 +67,10 @@
 .heading-sub-main{
     margin-left: 5px;
     font-size: 38px;
+    font-family: MaipoSans-Bold;
     text-align: left;
     letter-spacing: 2px;
-    color: #FA503E;
+    color: var(--font-color);
 }
 
 .temp-ref{
@@ -79,7 +80,7 @@
 .static-typed{
     font-size: 38px;
     text-align: left;
-    font-family: MaipoSans-SemiBold;
+    font-family: MaipoSans-Regular;
 }   
 
 .desc-main{
@@ -117,7 +118,7 @@
         background: linear-gradient(to right, transparent 50%, var(--line-color) 50%), linear-gradient(transparent 50%, var(--line-color) 50%), linear-gradient(to right, transparent 50%, var(--line-color) 50%),linear-gradient(transparent 50%, var(--line-color) 50%);
         background-position: top, right, bottom, left;
         background-repeat: repeat-x, repeat-y;
-        background-size: 10px 2.5px, 2.5px 10px;
+        background-size: 10px 1.5px, 1.5px 10px;
         float: left;
         margin: 0 20px;
         img{
@@ -228,7 +229,7 @@
             font-family: MaipoSans-SemiBold;
             font-size: 22px;
             text-decoration: none;
-            background-color: #FA503E;
+            background-color: var(--nav-active-color);
             padding: 11px 45px;
             border-radius: 50px;
         }

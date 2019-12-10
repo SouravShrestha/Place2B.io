@@ -12,12 +12,12 @@
     </a>
     <a routerLink="/slides">
       <li [class.active]="router.url == '/slides'" title-tooltip="Slides">
-        <img src="../../assets/images/slides.svg" class="nav-icon" />
+        <img src="../../assets/images/presentation.svg" class="nav-icon" />
       </li>
     </a>
     <div (click)="clicked_fav()">
       <li [class.active]="router.url == '/fav'" title-tooltip="Following">
-        <img src="../../assets/images/following.svg" class="nav-icon" />
+        <img src="../../assets/images/heart.svg" class="nav-icon" />
       </li>
     </div>
     <a routerLink="/tags">
@@ -26,8 +26,8 @@
       </li>
     </a>
     <div (click)="clicked_profile()">
-      <li [class.nav_active]="router.url == '/profile'" title-tooltip="Profile">
-        <img src="../../assets/images/ninja.png" class="nav-icon-avatar" />
+      <li [class.active]="router.url == '/profile'" title-tooltip="Profile">
+        <img src="../../assets/images/profile.svg" class="nav-icon" />
       </li>
     </div>
   </ul>
@@ -67,7 +67,7 @@
           <img src="../../assets/images/fb.svg" class="logo">
           <p class="_para_">or use your email address</p>
           <div class="form-container">
-            <span class="warning-text" *ngIf="name.invalid && name.touched">Enter a valid name 🤨</span>
+            <span class="warning-text" *ngIf="name.invalid && name.touched" style="margin-top: 10px;">Enter a valid name 🤨</span>
             <input type="text" placeholder="Name" formControlName="name" />
             <span class="warning-text" *ngIf="email.invalid && email.touched">Enter a valid email address 📧</span>
             <input type="text" placeholder="Email" formControlName="email" />

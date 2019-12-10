@@ -1,2 +1,9 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" enable-background="new 0 0 515.558 515.558" height="512px" viewBox="0 0 515.558 515.558" width="512px"><g><path d="m378.344 332.78c25.37-34.645 40.545-77.2 40.545-123.333 0-115.484-93.961-209.445-209.445-209.445s-209.444 93.961-209.444 209.445 93.961 209.445 209.445 209.445c46.133 0 88.692-15.177 123.337-40.547l137.212 137.212 45.564-45.564c0-.001-137.214-137.213-137.214-137.213zm-168.899 21.667c-79.958 0-145-65.042-145-145s65.042-145 145-145 145 65.042 145 145-65.043 145-145 145z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="406.916" height="404.416" viewBox="0 0 406.916 404.416">
+  <g id="search" transform="translate(-653 -542)">
+    <g id="Ellipse_53" data-name="Ellipse 53" transform="translate(653 542)" fill="none" stroke="#000" stroke-width="25">
+      <circle cx="163" cy="163" r="163" stroke="none"/>
+      <circle cx="163" cy="163" r="150.5" fill="none"/>
+    </g>
+    <path id="Rectangle_286" data-name="Rectangle 286" d="M0,0H25a0,0,0,0,1,0,0V163.5A12.5,12.5,0,0,1,12.5,176h0A12.5,12.5,0,0,1,0,163.5V0A0,0,0,0,1,0,0Z" transform="translate(917.788 821.965) rotate(-45)"/>
+  </g>
+</svg>
