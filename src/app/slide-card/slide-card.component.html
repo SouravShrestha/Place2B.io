@@ -1,26 +1,29 @@
-<owl-carousel-o [options]="customOptions" #owl_car (dragging)="nextPage()">
-    <ng-container *ngFor="let slide of slides">
-        <ng-template carouselSlide>
-            <a routerLink="/slide_details/{{ slide._id }}">
-                <div class="slide-card">
-                    <img class="owl-lazy" [src]="slide.url" alt="Slide Image">
-                    <h3>{{slide.title}}</h3>
-                    <p class="desc-slide">{{slide.description}}</p>
-                    <div class="tag-group">
-                        <div *ngFor="let tag of slide.tags">
-                            <span class="tag" [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
+<div style="min-height: 300px;">
+    <owl-carousel-o [options]="customOptions" #owl_car (dragging)="nextPage()">
+        <ng-container *ngFor="let slide of slides">
+            <ng-template carouselSlide [id]="slide._id">
+                <a routerLink="/slide_details/{{ slide._id }}">
+                    <div class="slide-card">
+                        <img class="owl-lazy" [src]="slide.url" alt="Slide Image">
+                        <h3>{{slide.title}}</h3>
+                        <p class="desc-slide">{{slide.description}}</p>
+                        <div class="tag-group">
+                            <div *ngFor="let tag of slide.tags">
+                                <span class="tag"
+                                    [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </ng-template>
-    </ng-container>
-</owl-carousel-o>
-    <div class="btn-next" *ngIf="right" (click)="owl_car.next(); nextPage()">
-        <img *ngIf="right" src="../../assets/images/next-btn.svg"/>
-    </div>
-    
-    <div class="btn-prev" *ngIf="left" (click)="owl_car.prev(); prevPage()">
-        <img src="../../assets/images/prev-btn.svg"/>
-    </div>
+                </a>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>
+<div class="btn-next" *ngIf="right" (click)="owl_car.next(); nextPage()">
+    <img *ngIf="right" src="../../assets/images/next-btn.svg" />
+</div>
+
+<div class="btn-prev" *ngIf="left" (click)="owl_car.prev(); prevPage()">
+    <img src="../../assets/images/prev-btn.svg" />
+</div>
 <br>

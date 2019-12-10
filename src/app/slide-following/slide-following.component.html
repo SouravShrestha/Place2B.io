@@ -1,14 +1,17 @@
-<div class="slide-container">
-  <div class="slide-card" *ngFor="let slide of slides">
-    <a routerLink="/slide_details/{{ slide._id }}">
+<div style="min-height: 300px;">
+  <div class="slide-container">
+    <div class="slide-card" *ngFor="let slide of slides">
+      <a routerLink="/slide_details/{{ slide._id }}">
         <img [src]="slide.url" alt="slide-image">
         <h3>{{slide.title}}</h3>
         <p class="desc-slide">{{slide.description}}</p>
         <div class="tag-group">
           <div *ngFor="let tag of slide.tags">
-              <span class="tag" [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
+            <span class="tag"
+              [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
           </div>
         </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
