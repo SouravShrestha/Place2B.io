@@ -109,6 +109,7 @@
 
 .how-container{
     @include flexCenter();
+    color: var(--font-color);
     width: 100%;
     .how-card{
         text-align: left;

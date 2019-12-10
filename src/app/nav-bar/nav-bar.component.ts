@@ -171,7 +171,7 @@ export class NavBarComponent implements OnInit {
             const sbw = window.innerWidth - document.documentElement.clientWidth;
             this.document.getElementById("body-main").style.position = 'fixed';
             this.document.getElementById("upload").style.display = 'none';
-            this.document.getElementById("settings").style.width = '6%';
+            this.document.getElementById("settings").style.width = '75px';
             this.document.getElementById("brightness").style.width = '100%';
             if (this.document.getElementById("temp-ref-main"))
               this.document.getElementById("temp-ref-main").style.marginRight = sbw + 'px';
@@ -200,7 +200,7 @@ export class NavBarComponent implements OnInit {
             const sbw = window.innerWidth - document.documentElement.clientWidth;
             this.document.getElementById("body-main").style.position = 'fixed';
             this.document.getElementById("upload").style.display = 'none';
-            this.document.getElementById("settings").style.width = '6%';
+            this.document.getElementById("settings").style.width = '75px';
             this.document.getElementById("brightness").style.width = '100%';
             if (this.document.getElementById("temp-ref-main"))
               this.document.getElementById("temp-ref-main").style.marginRight = sbw + 'px';
@@ -229,7 +229,7 @@ export class NavBarComponent implements OnInit {
             const sbw = window.innerWidth - document.documentElement.clientWidth;
             this.document.getElementById("body-main").style.position = 'fixed';
             this.document.getElementById("upload").style.display = 'none';
-            this.document.getElementById("settings").style.width = '6%';
+            this.document.getElementById("settings").style.width = '75px';
             this.document.getElementById("brightness").style.width = '100%';
             if (this.document.getElementById("temp-ref-main"))
               this.document.getElementById("temp-ref-main").style.marginRight = sbw + 'px';
