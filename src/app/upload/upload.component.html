@@ -24,7 +24,7 @@
         <p>Set a meaningful 😌 and attractive <span class="small-emoji">👻</span> thumbnail</p>
         <br>
         <p class="file_name" *ngIf="filename"> Selected file: <span class="filename">{{filename}}</span> </p>
-                <button class="btn-change" (click)="file_picker.click()" [disabled]="uploading">
+                <button type="button" class="btn-change" (click)="file_picker.click()" [disabled]="uploading==true">
                     Change Image
                 </button>
             </div>
