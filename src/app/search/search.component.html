@@ -10,8 +10,8 @@
     <br>
     <div class="search-container">
       <div class="search">
-        <input type="text" placeholder="Search by Slide, Tag or People . . ." class="search-bar"/>
-        <button class="btn-search">
+        <input type="text" placeholder="Search for slide or people . . ." class="search-bar" [(ngModel)]="keyword" (keyup.enter)="search_button.click()"/>
+        <button #search_button class="btn-search" (click)="search_()">
           <img src="../../assets/images/search.svg">
         </button>
       </div>

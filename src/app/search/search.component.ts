@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _searchService: SearchService) { }
+  keyword: string;
 
   ngOnInit() {
+  }
+
+  search_() {
+    if (this.keyword != null) {
+      this._searchService.getSearchResults(this.keyword).subscribe(res => {
+        res.forEach(element => {
+          var user = element.name.toLowerCase();
+          var user_id = element._id.toLowerCase();
+          console.log(user + " " + user_id);
+        });
+      });
+    }
   }
 
 }

@@ -75,6 +75,7 @@ router.get('/profile', verifyToken, (req, res) => {
 
 router.get('/tags', async (req, res) => {
     try {
+        console.log("tags");
         const tags = await Slide.aggregate([{ $project: { _id: 0, tags: 1 } }, { $unwind: "$tags" }, { $group: { _id: "$tags" } }])
         res.json(tags)
     } catch (err) {
@@ -94,7 +95,7 @@ router.post('/signup', (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            if(user==null){
+            if (user == null) {
                 user_.save((err, registeredUser) => {
                     if (err) console.log(err)
                     else {
@@ -110,45 +111,58 @@ router.post('/signup', (req, res) => {
     })
 })
 
-    router.post('/login', (req, res) => {
-        let userData = req.body
-        User.findOne({ email: userData.email }, (err, user) => {
-            if (err) console.log(err)
+router.post('/login', (req, res) => {
+    let userData = req.body
+    User.findOne({ email: userData.email }, (err, user) => {
+        if (err) console.log(err)
+        else {
+            if (!user) {
+                res.status(401).send('Invalid Email')
+            }
+            else if (user.password !== userData.password) {
+                res.status(401).send('Invalid Password')
+            }
             else {
-                if (!user) {
-                    res.status(401).send('Invalid Email')
-                }
-                else if (user.password !== userData.password) {
-                    res.status(401).send('Invalid Password')
-                }
-                else {
-                    let payload = { subject: user._id }
-                    let token = jwt.sign(payload, 'secretKey')
-                    const user_ = JSON.stringify(user)
-                    res.status(200).send({ token, user: user_ })
-                }
+                let payload = { subject: user._id }
+                let token = jwt.sign(payload, 'secretKey')
+                const user_ = JSON.stringify(user)
+                res.status(200).send({ token, user: user_ })
             }
-        })
+        }
     })
+})
 
-    function verifyToken(req, res, next) {
-        if (!req.headers.authorization) {
-            return res.status(401).send('Unauthorized request')
-        }
-        let token = req.headers.authorization.split(' ')[1]
-        if (token === 'null') {
-            return res.status(401).send('Unauthorized request')
-        }
-        try {
-            let payload = jwt.verify(token, 'secretKey')
-            if (!payload) {
-                return res.status(401).send('Unauthorized request')
-            }
-            req.userId = payload.subject
-            next()
-        } catch (err) {
-            return res.status(401).send('Unauthorized request')
-        }
+function verifyToken(req, res, next) {
+    if (!req.headers.authorization) {
+        return res.status(401).send('Unauthorized request')
     }
+    let token = req.headers.authorization.split(' ')[1]
+    if (token === 'null') {
+        return res.status(401).send('Unauthorized request')
+    }
+    try {
+        let payload = jwt.verify(token, 'secretKey')
+        if (!payload) {
+            return res.status(401).send('Unauthorized request')
+        }
+        req.userId = payload.subject
+        next()
+    } catch (err) {
+        return res.status(401).send('Unauthorized request')
+    }
+}
 
-    module.exports = router
+router.get('/search?:keyword',async (req, res) => {
+    try {
+        var name_= req.query.keyword;
+        var query = {}
+        // query['name'] = {$regex:".*"+name_+".*", $options: "i"}
+        query['name'] = {$regex:"^"+name_+"$|^"+name_+" .*$| "+name_+"$", $options: "i"}
+        const people = await User.find(query) 
+        res.json(people)
+    } catch (err) {
+        res.json({ message: err })
+    }
+});
+
+module.exports = router
