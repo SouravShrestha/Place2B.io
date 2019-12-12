@@ -56,7 +56,8 @@
       }
       &:hover {
         img {
-          filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+          filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%)
+            contrast(102%);
         }
         background-color: var(--nav-active-color);
       }
@@ -77,17 +78,19 @@
     }
   }
   .container_people {
-    margin-top: 25px;
-    width: 100%;
+    margin-top: 20px;
+    width: auto;
     max-height: 205px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
     .card_people {
+      display: inline-block;
       &:hover {
         cursor: pointer;
       }
       width: 150px;
-      float: left;
-      margin: 0 15px 15px 0;
+      margin: 0 25px 20px 0;
       box-shadow: 5px 5px var(--nav-shadow);
       background-color: var(--nav-back-color);
       a {
@@ -131,5 +134,75 @@
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+
+.slide-container {
+  margin-top: 20px;
+  width:100%; 
+}
+
+.slide-card {
+  color: var(--font-color);
+  float:left;
+  margin: 0 3% 3% 0;
+  width: 30%;
+  a {
+    text-decoration: none;
+    color: var(--font-color);
+  }
+  transition: 0.3s;
+  box-shadow: 5px 5px var(--nav-shadow);
+  background-color: var(--nav-back-color);
+
+  img {
+    width: 100%;
+    min-height: 200px;
+    background-image: url(../../assets/images/car_ref.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center;
+  }
+  h3 {
+    font-family: MaipoSans-SemiBold;
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 15px;
+  }
+  .desc-slide {
+    font-size: 16px;
+    padding: 0 15px 10px 15px;
+    font-family: MaipoSans-Regular;
+    white-space: normal;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 2.5em;
+    min-height: 2.5em;
+  }
+  .tag-group {
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-top: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    white-space: initial;
+    font-family: MaipoSans-Regular;
+    .tag {
+      background-color: #2775c3;
+      color: white;
+      float: left;
+      margin-bottom: 6px;
+      margin-right: 6px;
+      padding: 3px 15px;
+      border-radius: 3px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
   }
 }
