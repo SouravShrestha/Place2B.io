@@ -21,6 +21,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { FavComponent } from './fav/fav.component';
 import { HighlightSuggestionPipe } from './highlight-suggestion.pipe';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HighlightSuggestionPipe } from './highlight-suggestion.pipe';
     AppRoutingModule,
     NgxTypedJsModule,
     HttpModule,
+    ClickOutsideModule,
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule,

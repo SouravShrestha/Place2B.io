@@ -11,18 +11,37 @@
     </table>
     <div class="dashed-line"></div>
     <br>
-    <div class="search-container">
-      <div class="search">
-        <input type="text" (keydown.ArrowDown)="nextSugg($event)" (keydown.ArrowUp)="prevSugg($event)" placeholder="Search for slide or people . . ." class="search-bar" [formControl]="searchField"
-          [(ngModel)]="keyword" (keyup.enter)="search_()" (focus)="onFocus()" id="search-bar"/>
-        <button #search_button class="btn-search" id="btn-search" (click)="btn_click()">
-          <img src="../../assets/images/search.svg">
-        </button>
+    <div (clickOutside)="close_sugg($event)" style="width: 80%;position: relative;">
+      <div class="search-container">
+        <div class="search">
+          <input type="text" (keydown.ArrowDown)="nextSugg($event)" (keydown.ArrowUp)="prevSugg($event)"
+            placeholder="Search for slide or people . . ." class="search-bar" [formControl]="searchField"
+            [(ngModel)]="keyword" (keyup.enter)="search_()" (focus)="onFocus()" id="search-bar" autocomplete="off" />
+          <button #search_button class="btn-search" id="btn-search" (click)="btn_click()">
+            <img src="../../assets/images/search.svg">
+          </button>
+        </div>
+      </div>
+      <div class="suggestion-box" (mouseleave)="leave_box()">
+        <p class="sugg" [class.active_sugg]="curr_sugg==i" *ngFor="let result of results; let i = index" id="sugg{{i}}"
+          (click)="set_input($event)" innerHTML="{{result | highlightSuggestion: keyword}}"
+          (mouseenter)="mouseEnter(i)">
+        </p>
       </div>
     </div>
-    <div class="suggestion-box">
-      <p class="sugg" [class.active_sugg]="curr_sugg==i" *ngFor="let result of results; let i = index" id="sugg{{i}}" (click)="set_input($event)" innerHTML="{{result | highlightSuggestion: keyword}}" (mouseenter) ="mouseEnter(i)">
-      </p>
+    <div *ngIf="search_result" class="search_result">
+      <p class="head_">Results for <span class="bold-head_">{{keyword_temp}}</span> ({{count_result}} results)</p>
+      <div class="container_people">
+        <div class="card_people" *ngFor="let result of results_temp;">
+          <a routerLink="/people/{{result.id}}">
+            <div class="content-card">
+              <img src="../../assets/images/avatar.svg" class="avatar" />
+              <p class="title">{{result.name | titlecase}}</p>
+              <a routerLink="/follow/{{result.id}}"><button class="btn-follow">Follow</button></a>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   <br>

@@ -6,6 +6,7 @@ html{
     --nav-active-color:rgb(56, 107, 245);
     --font-color:#dadde4;
     --desc-color:hsla(0,0%,100%,.5);
+    --box-color: #16202B;
     --line-color:#8197a4;
     --line-color-modal:#FFF;
     --input-back:#FFF;
@@ -27,6 +28,7 @@ html{
 html[data-theme='light']{
     --nav-back-color:#DAE0E7;
     --font-color:#3a3a3a;
+    --box-color: #EEEEEE;
     --input-back:#DAE0E7;
     --nav-active-color:#3c8cf0;
     --_filter: brightness(0) saturate(100%) invert(51%) sepia(31%) saturate(5012%) hue-rotate(194deg) brightness(99%) contrast(90%);
@@ -57,7 +59,7 @@ html[data-theme='light']{
 
 mark{
     background-color: var(--active-green-color);
-    color: white;
+    color: #2a2a2a;
 }
 
 router-outlet ~ * {

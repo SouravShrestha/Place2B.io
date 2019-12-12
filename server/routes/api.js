@@ -152,30 +152,34 @@ function verifyToken(req, res, next) {
     }
 }
 
-router.get('/search?:keyword',async (req, res) => {
+router.get('/search?:keyword', async (req, res) => {
     try {
-        var name_= req.query.keyword;
-        var query = {}
-        // query['name'] = {$regex:".*"+name_+".*", $options: "i"}
-        query['name'] = {$regex:"^"+name_+"$|^"+name_+" .*$| "+name_+"$", $options: "i"}
-        const people = await User.find(query) 
-        res.json(people)
+        var name_ = req.query.keyword;
+        if (name_ != '') {
+            var query = {}
+            // query['name'] = {$regex:".*"+name_+".*", $options: "i"}
+            query['name'] = { $regex: "^" + name_ + "$|^" + name_ + " .*$| " + name_ + "$", $options: "i" }
+            const people = await User.find(query)
+            res.json(people)
+        }
+        else
+            res.send({ result: false })
     } catch (err) {
         res.json({ message: err })
     }
 });
 
-router.get('/suggestion?:keyword',async (req, res) => {
+router.get('/suggestion?:keyword', async (req, res) => {
     try {
-        var name_= req.query.keyword;
-        if(name_!=''){
+        var name_ = req.query.keyword;
+        if (name_ != '') {
             var query = {}
-            query['name'] = {$regex:".*"+name_+".*", $options: "i"}
+            query['name'] = { $regex: ".*" + name_ + ".*", $options: "i" }
             const people = await User.find(query).limit(7)
             res.json(people)
         }
         else
-            res.send({result: false})
+            res.send({ result: false })
     } catch (err) {
         res.json({ message: err })
     }
