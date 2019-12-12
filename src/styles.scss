@@ -55,6 +55,11 @@ html[data-theme='light']{
     background: var(--active-green-color);
 } 
 
+mark{
+    background-color: var(--active-green-color);
+    color: white;
+}
+
 router-outlet ~ * {
     position: absolute;
     height: 100%;

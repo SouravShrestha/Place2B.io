@@ -165,4 +165,20 @@ router.get('/search?:keyword',async (req, res) => {
     }
 });
 
+router.get('/suggestion?:keyword',async (req, res) => {
+    try {
+        var name_= req.query.keyword;
+        if(name_!=''){
+            var query = {}
+            query['name'] = {$regex:".*"+name_+".*", $options: "i"}
+            const people = await User.find(query).limit(7)
+            res.json(people)
+        }
+        else
+            res.send({result: false})
+    } catch (err) {
+        res.json({ message: err })
+    }
+});
+
 module.exports = router

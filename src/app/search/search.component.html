@@ -2,19 +2,27 @@
   <div class="temp-ref-main">
     <table class="head-container">
       <tr>
-        <td style="text-align: center; vertical-align: middle;"><a routerLink="/"><img src="../../assets/images/logo-main.svg" id="logo"></a></td>
-        <td><h1 class="heading">Search Content</h1></td>
+        <td style="text-align: center; vertical-align: middle;"><a routerLink="/"><img
+              src="../../assets/images/logo-main.svg" id="logo"></a></td>
+        <td>
+          <h1 class="heading">Search Content</h1>
+        </td>
       </tr>
     </table>
     <div class="dashed-line"></div>
     <br>
     <div class="search-container">
       <div class="search">
-        <input type="text" placeholder="Search for slide or people . . ." class="search-bar" [(ngModel)]="keyword" (keyup.enter)="search_button.click()"/>
-        <button #search_button class="btn-search" (click)="search_()">
+        <input type="text" (keydown.ArrowDown)="nextSugg($event)" (keydown.ArrowUp)="prevSugg($event)" placeholder="Search for slide or people . . ." class="search-bar" [formControl]="searchField"
+          [(ngModel)]="keyword" (keyup.enter)="search_()" (focus)="onFocus()" id="search-bar"/>
+        <button #search_button class="btn-search" id="btn-search" (click)="btn_click()">
           <img src="../../assets/images/search.svg">
         </button>
       </div>
+    </div>
+    <div class="suggestion-box">
+      <p class="sugg" [class.active_sugg]="curr_sugg==i" *ngFor="let result of results; let i = index" id="sugg{{i}}" (click)="set_input($event)" innerHTML="{{result | highlightSuggestion: keyword}}" (mouseenter) ="mouseEnter(i)">
+      </p>
     </div>
   </div>
   <br>

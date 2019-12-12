@@ -20,6 +20,7 @@ import { AuthGuard } from './auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { FavComponent } from './fav/fav.component';
+import { HighlightSuggestionPipe } from './highlight-suggestion.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FavComponent } from './fav/fav.component';
     SearchComponent,
     TagsComponent,
     ProfileComponent,
-    FavComponent
+    FavComponent,
+    HighlightSuggestionPipe
   ],
   imports: [
     BrowserModule, 
