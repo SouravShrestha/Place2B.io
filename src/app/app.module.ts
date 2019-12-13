@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
+import { NgxMasonryModule } from 'ngx-masonry';
 import { SlideCardComponent } from './slide-card/slide-card.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FooterComponent } from './footer/footer.component';
@@ -45,6 +46,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     AppRoutingModule,
     NgxTypedJsModule,
     HttpModule,
+    NgxMasonryModule,
     ClickOutsideModule,
     HttpClientModule,
     BrowserAnimationsModule,

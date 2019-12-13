@@ -29,11 +29,13 @@ export class SearchComponent implements OnInit {
   tags: string[]=[];
   font: string[]=[];
   back: string[]=[];
-  count_result = 0;
+  count_result = -1;
+  searched_status = false;
   searchField: FormControl = new FormControl();
   search_result: boolean = true;
 
   ngOnInit() {
+    this.searched_status = false;
     this.search_result = false;
     this.searchField.valueChanges.
       debounceTime(200).distinctUntilChanged().
@@ -51,6 +53,8 @@ export class SearchComponent implements OnInit {
             result.json().slides.forEach(elem => {
               this.results.push(elem.title)
             });
+            if(this.results.length > 7)
+              this.results = this.results.slice(0,8);
           }
         }
       });
@@ -129,22 +133,16 @@ export class SearchComponent implements OnInit {
 
   getRes() {
     this.mouseLeave();
+    this.searched_status = true; 
     this.results_temp_users = [];
     this.results_temp_slides = [];
     this._searchService.getSearchResults(this.keyword).subscribe(res => {
+      this.count_result = 0;
       this.count_result = res.people.length + res.slides.length
       if (!(res.result == false)) {
         res.people.forEach(element => {
           var user = element.name.toLowerCase();
           var user_id = element._id.toLowerCase();
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
-          this.results_temp_users.push({ name: user, id: user_id });
           this.results_temp_users.push({ name: user, id: user_id });
           console.log(user + " " + user_id);
         });

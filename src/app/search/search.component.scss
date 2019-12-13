@@ -1,6 +1,7 @@
 @import "../../styles.scss";
 
 .suggestion-box {
+  z-index: 100;
   margin-top: 3px;
   width: 100%;
   position: absolute;
@@ -12,6 +13,26 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.no-result{
+  text-align: center;
+  margin-top: 75px;
+  letter-spacing: 1.3px;
+  img {
+    height: 150px;
+  }
+  .no-head{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: MaipoSans-SemiBold;
+    font-size: 22px;
+  }
+  .no-desc{
+    font-family: MaipoSans-Regular;
+    color: var(--desc-color);
+    font-size: 16px;
   }
 }
 
@@ -66,6 +87,7 @@
 }
 
 .search_result {
+  position: relative;
   margin-top: 25px;
   .head_ {
     color: var(--desc-color);
@@ -139,12 +161,12 @@
 
 .slide-container {
   margin-top: 20px;
-  width:100%; 
+  width: 100%;
 }
 
 .slide-card {
   color: var(--font-color);
-  float:left;
+  float: left;
   margin: 0 3% 3% 0;
   width: 30%;
   a {

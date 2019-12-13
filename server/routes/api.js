@@ -174,14 +174,15 @@ router.get('/search?:keyword', async (req, res) => {
 
 router.get('/suggestion?:keyword', async (req, res) => {
     try {
+        var max_ = 7;
         var keyword_ = req.query.keyword;
         if (keyword_ != '') {
             var query = {}
             query['name'] = { $regex: ".*" + keyword_ + ".*", $options: "i" }
-            const people = await User.find(query).limit(7)
+            const people = await User.find(query).limit(max_)
             var query = {}
             query['title'] = { $regex: ".*" + keyword_ + ".*", $options: "i" }
-            const slides = await Slide.find(query)
+            const slides = await Slide.find(query).limit(max_)
             res.json({people:people, slides: slides})
         }
         else

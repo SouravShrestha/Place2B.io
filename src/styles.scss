@@ -44,7 +44,7 @@ html[data-theme='light']{
     --nav-shadow:rgba(5, 7, 8, .02);
     --body-back:#f1f1f1;
     --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(41%) sepia(11%) saturate(369%) hue-rotate(189deg) brightness(92%) contrast(89%);
-    --image-filter:brightness(0) saturate(100%) invert(32%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(64%) contrast(114%);
+    --image-filter:brightness(0) saturate(100%) invert(9%) sepia(0%) saturate(78%) hue-rotate(151deg) brightness(90%) contrast(79%);
 }
 
 ::selection {
@@ -132,9 +132,7 @@ body{
 
 .body-content{
     min-height: 100vh;
-    padding: 0 3%;
-    width: 88%;
-    overflow-y: hidden;
+    width: calc(100% - 70px);
     transition: 0.5s;
     margin-left: 70px;
 }
@@ -143,6 +141,7 @@ body{
 .temp-ref-main{
     min-height: 95vh;
     margin-top: 1.5%;
+    padding: 0 3%;
 }
 
 .heading{

@@ -37,6 +37,7 @@
     "multer-s3": "^2.9.0",
     "ng-click-outside": "^5.1.1",
     "ngx-gallery": "^5.10.0",
+    "ngx-masonry": "^1.1.4",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^2.0.1",
     "ngx-typed-js": "^1.1.0",

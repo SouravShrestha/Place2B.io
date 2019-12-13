@@ -30,36 +30,40 @@
       </div>
     </div>
     <!-- *ngIf="search_result"  -->
-    <div *ngIf="search_result" class="search_result">
-      <p class="head_">Results for <span class="bold-head_">{{keyword_temp}}</span> ({{count_result}} results)</p>
+    <div class="search_result">
+      <p *ngIf="search_result" class="head_">Results for <span class="bold-head_">{{keyword_temp}}</span> ({{count_result}} results)</p>
       <div class="container_people" *ngIf="results_temp_users!+[]">
-          <div class="card_people" *ngFor="let result of results_temp_users;">
-            <a routerLink="/people/{{result.id}}">
-              <div class="content-card">
-                <img src="../../assets/images/avatar.svg" class="avatar" />
-                <p class="title">{{result.name | titlecase}}</p>
-                <a routerLink="/follow/{{result.id}}"><button class="btn-follow">Follow</button></a>
-              </div>
-            </a>
-          </div>
-      </div>
-      <div class="slide-container">
-        <div *ngFor="let t of arr">
-          <div class="slide-card" *ngFor="let slide of results_temp_slides;">
-            <a routerLink="/slide_details/{{ slide._id }}">
-              <img [src]="slide.url" alt="slide-image">
-              <h3>{{slide.title}}</h3>
-              <p class="desc-slide">{{slide.description}}</p>
-              <div class="tag-group">
-                <div *ngFor="let tag of slide.tags">
-                  <span class="tag"
-                    [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
-                </div>
-              </div>
-            </a>
-          </div>
+        <div class="card_people" *ngFor="let result of results_temp_users;">
+          <a routerLink="/people/{{result.id}}">
+            <div class="content-card">
+              <img src="../../assets/images/avatar.svg" class="avatar" />
+              <p class="title">{{result.name | titlecase}}</p>
+              <a routerLink="/follow/{{result.id}}"><button class="btn-follow">Follow</button></a>
+            </div>
+          </a>
         </div>
       </div>
+      <div class="slide-container">
+        <div class="slide-card" *ngFor="let slide of results_temp_slides;">
+          <a routerLink="/slide_details/{{ slide._id }}">
+            <img [src]="slide.url" alt="slide-image">
+            <h3>{{slide.title}}</h3>
+            <p class="desc-slide">{{slide.description}}</p>
+            <div class="tag-group">
+              <div *ngFor="let tag of slide.tags">
+                <span class="tag"
+                  [ngStyle]="{'background-color': getColor(tag).back, 'color': getColor(tag).color}">#{{ tag.toLowerCase() }}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="no-result" *ngIf="count_result==0 && searched_status==true">
+      <img src="../../assets/images/crying.svg">  
+      <h2 class="no-head"> Sorry, No Results Found</h2>
+      <h2 class="no-desc"> Try searching for a different keyword</h2>
     </div>
   </div>
   <br>
