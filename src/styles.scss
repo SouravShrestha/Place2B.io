@@ -10,9 +10,10 @@ html{
     --line-color:#8197a4;
     --line-color-modal:#FFF;
     --input-back:#FFF;
+    --card-highlight: #1c3348;
     --next-btn:brightness(0) saturate(100%) invert(19%) sepia(30%) saturate(733%) hue-rotate(173deg) brightness(94%) contrast(86%);
     --prev-btn:brightness(0) saturate(100%) invert(19%) sepia(30%) saturate(733%) hue-rotate(173deg) brightness(94%) contrast(86%);;
-    --nav-shadow:rgba(18, 24, 27, 0.2);
+    --nav-shadow:rgba(18, 24, 27, 0.35);
     --modal-back:rgba(18, 24, 27,0.90);
     --body-back:#16202B;
     --laptop-border:brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(335deg) brightness(110%) contrast(102%);
@@ -33,6 +34,7 @@ html[data-theme='light']{
     --nav-active-color:#3c8cf0;
     --_filter: brightness(0) saturate(100%) invert(51%) sepia(31%) saturate(5012%) hue-rotate(194deg) brightness(99%) contrast(90%);
     --line-color-modal:#2a2a2a;
+    --card-highlight: #777777;
     --logo-filter:brightness(0) saturate(100%) invert(50%) sepia(98%) saturate(3178%) hue-rotate(197deg) brightness(102%) contrast(88%);
     --modal-back:rgba(255,255,255,0.90);
     --laptop-border:brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(605%) hue-rotate(179deg) brightness(85%) contrast(100%);
@@ -41,7 +43,7 @@ html[data-theme='light']{
     --next-btn:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);
     --prev-btn:brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(113%) hue-rotate(174deg) brightness(92%) contrast(84%);
     --line-color:#8197a4;
-    --nav-shadow:rgba(5, 7, 8, .02);
+    --nav-shadow:rgba(5, 7, 8, .1);
     --body-back:#f1f1f1;
     --nav-inactive-icon-filter:brightness(0) saturate(100%) invert(41%) sepia(11%) saturate(369%) hue-rotate(189deg) brightness(92%) contrast(89%);
     --image-filter:brightness(0) saturate(100%) invert(9%) sepia(0%) saturate(78%) hue-rotate(151deg) brightness(90%) contrast(79%);
