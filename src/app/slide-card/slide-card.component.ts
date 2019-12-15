@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { SlidesService } from "../slides.service";
 import { Slide } from "../slide";
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -7,7 +7,8 @@ import { RandomBackFont } from "../random-back-font";
 @Component({
   selector: 'app-slide-card',
   templateUrl: './slide-card.component.html',
-  styleUrls: ['./slide-card.component.scss']
+  styleUrls: ['./slide-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SlideCardComponent implements OnInit {
 

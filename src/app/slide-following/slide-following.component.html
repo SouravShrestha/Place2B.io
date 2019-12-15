@@ -2,7 +2,7 @@
   <div class="slide-container">
     <div class="slide-card" *ngFor="let slide of slides">
       <a routerLink="/slide_details/{{ slide._id }}">
-        <img [src]="slide.url" alt="slide-image">
+        <img [src]="slide.url">
         <h3>{{slide.title}}</h3>
         <p class="desc-slide">{{slide.description}}</p>
         <div class="tag-group">
